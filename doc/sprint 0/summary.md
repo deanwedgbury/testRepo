@@ -36,8 +36,19 @@ arduino
 wifi module
 water tank
 led to say if its on or not
+water level sensor (maybe)
 
 Technology we will be using:
+sql
+android(maybe)
+php
+html/css
+C (for arduino)
+
+Extra features: (after finishing main part):
+app
+scarecrow for birds or squirrels
+
 
 
 
