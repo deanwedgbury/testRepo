@@ -28,6 +28,8 @@ Key Users:
 - Small Local Businesses (for decoration as an alternative to fake plants):
   Want to make their business look better and more environmentally friendly, so instead of using fake plants, they use real ones
   with this system to maintain them.
+  
+ - 
  
 Principles: Minimal user interaction, plug and play
 
