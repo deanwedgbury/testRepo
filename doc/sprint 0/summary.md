@@ -48,7 +48,7 @@ C (for arduino)
 Extra features: (after finishing main part):
 app
 scarecrow for birds or squirrels
-
+consider weather?
 
 
 
