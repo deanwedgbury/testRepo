@@ -32,7 +32,27 @@ ZipGrow - https://zipgrow.ca/
     - since the ZipGrow is a vertical tower, it can only be used for specific produce, particularly smaller leafy plants, our product has can be used on any plant that can grow in a a pot
     - the cheapest ZipGrow tower is $79.99 and it does not include the automatic watering system, our product will be significantly cheaper
     
+Why we differ:
+  - the ZipGrow is meant for more serious users, casual users are not their target audience
+  - the ZipGrow caters to individuals who want some sort of produce, while our product can be used on any plant inclusing flowers
     
+    
+    
+    
+Parrot Pot - https://www.parrot.com/ca/connected-garden/parrot-pot
+    - smart pot that automatically waters your plans
+    - has a light senser to let you know if your plant needs more sunlight
+    - has a companion app to track your plant data
+    - runs off AA batteries
+    
+How we differ:
+  - you must transfer your plant to the parrot pot, or plant a seed in order to use it, our product can be used on any potted plant
+  - this limitation prevents you from using it on a wide variety of plants, only plants of a certain size can be used, our product does not have this limitation
+  - the Parrot Pot uses AA batteries while our system will be powered by a wall outlet or batteries
+  
+  
+Why we differ:
+  - the Parrot Pot 
     
     
   
