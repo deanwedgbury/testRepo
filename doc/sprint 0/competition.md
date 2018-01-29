@@ -7,7 +7,7 @@ EDYN - https://edyn.com/
   - powered by solar
   - measures light, moisture, nutrition and humidity
   
-  How we differ:
+How we differ:
    - EDYN must be connected to the internet at all times, our product has an offline backup which will still water plants based on    sensor data and time intervals in case the internet is disconnected
    - EDYN only works in outdoor gardens, our product is designed for indoor, single-potted plants
    - EDYN is powered by solar and does not have a water reservoir, our product will have a water reservoir and it will be powered by a battery or wall outlet
@@ -15,8 +15,9 @@ EDYN - https://edyn.com/
    
    
    
-   Why they differ:
+Why they differ:
     - EDYN is targeting a similar, but different demographic. EDYN is aiming at people with outdoor gardens who want to have some of maintanence automated, while we focus on individuals with indoor plants that want to track and maintain their plants when they aren't necessarily available or capable
+    - EDYN is focued on garden enthusiasts while we focus on any plant lover, including novices
     
     
 ZipGrow - https://zipgrow.ca/
