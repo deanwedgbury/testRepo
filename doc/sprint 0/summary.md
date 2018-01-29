@@ -1,79 +1,75 @@
-Arduino based plant maintanence system
+Project Objective: 
 
-An arduino powered device which measures the humidity of a flower plant and releases a valve to water it.
+Our goal will be to create an Arduino-based automatic plant maintanence system.
 
-Project Objective: We are going to create an arduino based plant management system. It will automatically detect moisture levels in the soil and water the plants appropriately. It will also measure temperature, humidity, and make suggestions. It will keep track of data about the plants such as when it was watered, sunlight levels, age and allow users to input their own data too. We will be able to present the data back to the User, and make graphs to help visualize the data too. Also, it will have a software component where we can control remotely, for manual watering, graphs, tracking, (ex. how much water it got) 
+In essence, we will be creating a device which will measure the moisture levels in the soil of a small indoor potted plant and releases a valve to water it based on the observed moisture level. Our device will connect to the database and compare its moisture level to the desired moisture level, and make a decision about whether to water the plant or not. If there it cannot connect to wifi, it will simply water the plant based at a certain time interval. This value will be stored locally.
 
-Watering time depends on moisture levels and the data (i.e. how often it needs to be watered)
-for example if data says every 6h, then water every 6h or when moist is low
+On top of this, ur device will also measure data such as temperature, sunlight levels, and humidity over time. It will keep track of this data about the plants as well as its own data (see below) in a database. This data will be used to determine when to water the plant as well as make suggestions to the user (for example, suggest the user to move the plant to an area with more sunlight if the detected sunlight levels are lower than the ideal sunlight levels needed for this specific plant type). We will also be able to present the data back to the User, and make graphs to help visualize the data. These graphs will be available on a website that the user can log into. 
 
 
 
 Key Users:
 - Beginners:
-  Want to start learning about plants and growing their own
+  These people want to start learning about plants and how to grow their own
   
-- Busy People (due to work, travel):
-  Want to have plants within their household, but aren't always available to maintain them due to being busy
+- Busy People:
+  These people want to have plants within their household, but aren't always available to maintain them due to being busy or having to travel a lot
   
 - Elderly people:
-  Want to have plants within their household, but aren't always able to maintain them due to physical or mental limitations
+  These people want to have plants within their household, but aren't always able to maintain them due to physical or mental limitations
   
 - Lazy People:
-  Want plants but don't want to care for them
+  These people want plants but don't want the hassle of having to care for them
   
 - Handicapped People:
-  Want plants but can't maintain them due to physical limitation
+  These people want plants but can't maintain them due to physical limitations
   
 - Small Local Businesses (for decoration as an alternative to fake plants):
-  Want to make their business look better and more environmentally friendly, so instead of using fake plants, they use real ones
-  with this system to maintain them.
+  These people want to make their business look better and more environmentally friendly, so instead of using fake plants, they use real plants, using this system to maintain them.
   
- - 
+
  
-Principles: Minimal user interaction, plug and play
+Principles: We want to focus on having minimal user interaction. Our product should be plug-and-play.
 
-Materials:
-valve
-sunlight sensor
-humidity sensor
-moisture sensor
-temperature sensor
-arduino
-wifi module
-water tank
-led to say if its on or not
-water level sensor (maybe)
-case
-light source(maybe)
+Materials Needed:
+- valve
+- sunlight sensor
+- humidity sensor
+- moisture sensor
+- temperature sensor
+- arduino chip
+- water tank
+- casing
+- LEDs (to signal different states such as on, off, and watering)
 
-Technology we will be using:
-sql
-android(maybe)
-php
-html/css
-C (for arduino)
+Extra Materials:
+- water level sensor
+- wifi module
+- light source (to be able to control how much light the plant is getting)
 
-Database:
-Plantid, planttype
-PlantType, humidity, temperature, moisture, sunlight, lowestMoistureAllowed
-
-plantid, time, amountofwater
-
-local: plantType, waterinterval
-
-we need db to log info (so user can see progress or track) and also cuz we need that info to know when to water
+Technologies To be Used:
+- sql
+- C (for arduino)
+- php
+- html/css
+- android (if extra feature is implemented)
 
 
+Databases:
+Plants(plantid, plantType)
+OptimalValues(plantType, humidity, temperature, moisture, sunlight, wateringInterval, wateringAmount)
+ObservedValues(plantid, timeObserved, humidity, temperature, moisture, sunlight, timeSinceLastWater, age)
+Users(username, password)
 
-Extra features: (after finishing main part):
-app
-scarecrow for birds or squirrels
-consider weather?
-no wifi, if no wifi then keep on recording data and watering and shit like a fitbit
-local storage to track data and when it connects then upload it
-measure nutrition, nitrogen, phosphorus, potassium
-have a light bulb so that to increase the sunlight (since were aiming for indoors)
+
+Extra features (If time permits):
+- Create a software component where users can view the same data as the website, but can also control the watering system remotely (i.e. manual watering)
+- Play a sound to scare off animals such as birds or squirrels whenever they come near the plant
+- If we cannot connect to wifi, continue storing observed values locally until it can connect and upload the data to the database
+- Measure plant nutrition. For example, measure nitrogen, phosphorus, and potassium levels in the plant.
+- Add a light bulb to have control over how much light the plant is getting
+
+
 
 
 
