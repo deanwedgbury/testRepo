@@ -56,10 +56,10 @@ Technologies To be Used:
 
 
 Databases:
-Plants(plantid, plantType)
-OptimalValues(plantType, humidity, temperature, moisture, sunlight, wateringInterval, wateringAmount)
-ObservedValues(plantid, timeObserved, humidity, temperature, moisture, sunlight, timeSinceLastWater, age)
-Users(username, password)
+- Plants(plantid, plantType)
+- OptimalValues(plantType, humidity, temperature, moisture, sunlight, wateringInterval, wateringAmount)
+- ObservedValues(plantid, timeObserved, humidity, temperature, moisture, sunlight, timeSinceLastWater, age)
+- Users(username, password)
 
 
 Extra features (If time permits):
