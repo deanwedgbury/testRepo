@@ -52,7 +52,7 @@ How we differ:
   
   
 Why we differ:
-  - the Parrot Pot 
+  - the Parrot Pot is aimed at extreme novices who like the idea of having a plant but don't like the idea of maintaining it, our product is mainly aimed at indididuals who already have a plant and would like more 
     
     
   
