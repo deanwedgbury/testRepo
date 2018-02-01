@@ -32,15 +32,12 @@ How we differ:
 Why we differ:
   - the ZipGrow is meant for more serious users, casual users are not their target audience
   - the ZipGrow caters to individuals who want some sort of produce, while our product can be used on any plant inclusing flowers
-    
-    
-    
-    
+  
 Parrot Pot - https://www.parrot.com/ca/connected-garden/parrot-pot
-    - smart pot that automatically waters your plans
-    - has a light senser to let you know if your plant needs more sunlight
-    - has a companion app to track your plant data
-    - runs off AA batteries
+  - smart pot that automatically waters your plans
+  - has a light senser to let you know if your plant needs more sunlight
+  - has a companion app to track your plant data
+  - runs off AA batteries
     
 How we differ:
   - you must transfer your plant to the parrot pot, or plant a seed in order to use it, our product can be used on any potted plant
