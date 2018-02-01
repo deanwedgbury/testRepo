@@ -7,6 +7,7 @@ Point estimate is the fibanacci sequence up to 34, where 34 is the hardest.
 ## Web
 - As a plant enthusiast, I want to store and retrieve relevant data on my plants so that I can keep track of my plants and take better care of it. [1/13]
 - As a visual person, I want to see a history of the plants data over time, so that I have a better understanding of my plant's progress. [1/21]
+- As a XXX, I want to have a simple, intuitive, user friendly and visually appealing website so that I can look forward to checking on my plant every day. [3/21]
 
 ## Measuring extra data
 - As a (person who likes to keep track of things and see progress), I would like to track how much sunlight/temperature/humidity my plant is getting so that I can determine if I should move it. [5/21]
