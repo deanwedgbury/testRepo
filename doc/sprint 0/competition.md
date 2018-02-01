@@ -23,7 +23,7 @@ ZipGrow - https://zipgrow.ca/
     - very minimal interaction required once it's set up
     - can be found in the UTM Student Centre
     
-    How we differ:
+How we differ:
     - the ZipGrow system is focused on commercial use or more advanced consumer use, our product is designed for any regular consumer with a potted plant
     - it does not connect to the internet and does not have any sensors, our product will track various plant data and relay that information online
     - it cannot be used on existing plants, you have to start from scratch, our product can be used on existing pots or on new ones
