@@ -1,5 +1,7 @@
 Priority is 1-10, where 1 is highest.
+
 Point estimate is the fibanacci sequence up to 34, where 34 is the hardest.
+
 [Priority/Point estimate]
 
 ## Web
