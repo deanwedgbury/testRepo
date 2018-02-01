@@ -11,7 +11,7 @@ How we differ:
    - EDYN must be connected to the internet at all times, our product has an offline backup which will still water plants based on    sensor data and time intervals in case the internet is disconnected
    - EDYN only works in outdoor gardens, our product is designed for indoor, single-potted plants
    - EDYN is powered by solar and does not have a water reservoir, our product will have a water reservoir and it will be powered by a battery or wall outlet
-   - without accessories, the EDYN is $99.9, our product will be significantly cheaper
+   - without accessories, the EDYN is $99.97, our product will be significantly cheaper
    
    
    
