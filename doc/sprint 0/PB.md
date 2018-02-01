@@ -21,5 +21,5 @@ Point estimate is the fibanacci sequence up to 34, where 34 is the hardest.
 ## Extra Features
 - As a mobile user, I would like to be able to use my device to use the Plant Buddy on my phone so that I can keep track of my plant while on the go. [8/34]
 - As an individual with unreliable internet connection, I want the Plant Buddy to continue working even when offline, so that I can make sure my plants stay watered. [9/34]
-- As a outdoor plant grower, I want a way to scare off animals from my plant so that my plant can grow without being eaten. [7/34]
+- As a outdoor plant grower, I want a way to scare off animals from my plant so that my plant can grow without being eaten. [9/34]
 - As a detail oriented person, I want to be able to measure my plant’s nutrition so that I know how healthy my plant is. [7/34]
