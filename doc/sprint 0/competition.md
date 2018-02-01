@@ -16,8 +16,7 @@ How we differ:
 Why they differ:
   - EDYN is targeting a similar, but different demographic. EDYN is aiming at people with outdoor gardens who want to have some of maintanence automated, while we focus on individuals with indoor plants that want to track and maintain their plants when they aren't necessarily available or capable
   - EDYN is focued on garden enthusiasts while we focus on any plant lover, including novices
-    
-    
+  
 ZipGrow - https://zipgrow.ca/
     - tall vertical towers which automate watering and light source
     - very minimal interaction required once it's set up
