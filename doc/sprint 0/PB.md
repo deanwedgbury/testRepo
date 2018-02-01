@@ -10,7 +10,7 @@
 - As a frequent traveller, I want to have my plant automatically watered based on what is best for the plant, so that I can travel without worrying about my plants.
 - As a detail oriented person, I want to be able to know when I am running low on water, so that I can know when I have to refill the water.
 - As a lazy user, I want to be able to have a bigger water tank? So that I don’t have to refill the water as much.
-- As a indoor plant grower, I want to add a light so that I can have my plants indoors without anyone knowing.
+- As a indoor plant grower, I want to add a light so that I can grow my plants indoors without sunlight.
 	
 
 ## Extra Features
