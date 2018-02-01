@@ -6,7 +6,7 @@
 - As a (person who likes to keep track of things and see progress), I would like to track how much sunlight/temperature/humidity my plant is getting so that I can determine if I should move it.
 
 ## Watering
-- As a detail oriented person, I want to be able to water my plant manually, with the press of a button so that i can control exactly when i water my plant
+- As a detail oriented person, I want to be able to water my plant manually, with the press of a button so that i can control exactly when i water my plant.
 - As a frequent traveller, I want to have my plant automatically watered based on what is best for the plant, so that I can travel without worrying about my plants.
 - As a detail oriented person, I want to be able to know when I am running low on water, so that I can know when I have to refill the water.
 - As a lazy user, I want to be able to have a bigger water tank? So that I don’t have to refill the water as much.
