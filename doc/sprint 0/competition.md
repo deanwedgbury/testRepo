@@ -25,7 +25,7 @@ ZipGrow - https://zipgrow.ca/
 How we differ:
   - the ZipGrow system is focused on commercial use or more advanced consumer use, our product is designed for any regular consumer with a potted plant
   - it does not connect to the internet and does not have any sensors, our product will track various plant data and relay that information online
-  - it cannot be used on existing plants, you have to start from scratch, our product can be used on existing pots or on new one
+  - it cannot be used on existing plants, you have to start from scratch, our product can be used on existing pots or on new ones
   - since the ZipGrow is a vertical tower, it can only be used for specific produce, particularly smaller leafy plants, our product has can be used on any plant that can grow in a a pot
   - the cheapest ZipGrow tower is $79.99 and it does not include the automatic watering system, our product will be significantly cheaper
     
