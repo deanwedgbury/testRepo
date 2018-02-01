@@ -1,3 +1,7 @@
+Priority is 1-10, where 1 is highest.
+Point estimate is the fibanacci sequence up to 34, where 34 is the hardest.
+[Priority/Point estimate]
+
 ## Web
 - As a plant enthusiast, I want to store and retrieve relevant data on my plants so that I can keep track of my plants.
 - As a plant enthusiast, I want to be check the moisture level of my plant’s soil, so that I can take better care of it.
@@ -7,7 +11,7 @@
 
 ## Watering
 - As a detail oriented person, I want to be able to water my plant manually, with the press of a button so that i can control exactly when i water my plant.
-- As a frequent traveller, I want to have my plant automatically watered based on what is best for the plant, so that I can travel without worrying about my plants.
+- As a frequent traveller, I want to have my plant automatically watered based on what is best for the plant, so that I can travel without worrying about my plants. 
 - As a detail oriented person, I want to be able to know when I am running low on water, so that I can know when I have to refill the water.
 - As a lazy user, I want to be able to have a bigger water tank? So that I don’t have to refill the water as much.
 - As a indoor plant grower, I want to add a light so that I can grow my plants indoors without sunlight.
