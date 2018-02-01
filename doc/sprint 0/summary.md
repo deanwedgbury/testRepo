@@ -29,7 +29,13 @@ Key Users:
   
 
  
-Principles: We want to focus on having minimal user interaction. Our product should be plug-and-play.
+Principles: 
+  - Plant health and data collection over power consumption and bandwidth usage.
+  - Minimal users interaction over a highly customizable product.
+  - Generalizability and stability over extra features for specific plants.
+  - Availability and accesability over aesthetics.
+
+We want to focus on having minimal user interaction. Our product should be plug-and-play.
 
 Materials Needed:
 - valve
