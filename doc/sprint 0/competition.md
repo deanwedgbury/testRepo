@@ -12,9 +12,7 @@ How we differ:
    - EDYN only works in outdoor gardens, our product is designed for indoor, single-potted plants
    - EDYN is powered by solar and does not have a water reservoir, our product will have a water reservoir and it will be powered by a battery or wall outlet
    - without accessories, the EDYN is $99.97, our product will be significantly cheaper
-   
-   
-   
+  
 Why they differ:
     - EDYN is targeting a similar, but different demographic. EDYN is aiming at people with outdoor gardens who want to have some of maintanence automated, while we focus on individuals with indoor plants that want to track and maintain their plants when they aren't necessarily available or capable
     - EDYN is focued on garden enthusiasts while we focus on any plant lover, including novices
