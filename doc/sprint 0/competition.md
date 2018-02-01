@@ -18,7 +18,6 @@ Why they differ:
   - EDYN is focued on garden enthusiasts while we focus on any plant lover, including novices
   
 ZipGrow - https://zipgrow.ca/
-
     - tall vertical towers which automate watering and light source
     - very minimal interaction required once it's set up
     - can be found in the UTM Student Centre
