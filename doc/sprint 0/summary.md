@@ -14,15 +14,12 @@ Key Users:
   
 - Busy People:
   These people want to have plants within their household, but aren't always available to maintain them due to being busy or having to travel a lot.
-  
-- Elderly people:
+
+- Elderly/Handicapped people:
   These people want to have plants within their household, but aren't always able to maintain them due to physical or mental limitations.
   
 - Lazy People:
   These people want plants but don't want the hassle of having to care for them.
-  
-- Handicapped People:
-  These people want plants but can't maintain them due to physical limitations.
   
 - Small Local Businesses (for decoration as an alternative to fake plants):
   These people want to make their business look better and more environmentally friendly, so instead of using fake plants, they use real plants, using this system to maintain them.
@@ -38,14 +35,16 @@ Principles:
 We want to focus on having minimal user interaction. Our product should be plug-and-play.
 
 Materials Needed:
-- Valve
-- Sunlight sensor
-- Humidity sensor
-- Moisture sensor
-- Temperature sensor
-- Arduino chip
-- Water tank
-- Casing
+- valve
+- sunlight sensor
+- humidity sensor
+- moisture sensor
+- temperature sensor
+- arduino chip
+- breadboard
+- fertilized plants, ready to sprout. (Fertilized Soybeans)
+- water tank
+- casing
 - LEDs (to signal different states such as on, off, and watering)
 
 Extra Materials:
