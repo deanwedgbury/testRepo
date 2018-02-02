@@ -11,14 +11,14 @@ for Monday **January 29, 2018**.
 was decided once everyone had voiced their opinions and agreed.
 
 ## User Story Priority/Points
-- Our proiorities will use the following scale: 1, 2, 3, ... , 10
-- Our story points will use the fibonacci scale (skipping the first number): 1, 2, 3, 5, 8, 13, 21, 34
+- Our proiorities will use the following scale: 1, 2, 3, ... , 10. The 1-10 scale was chosen for the simplicity of comparing priorities.
+- Our story points will use the fibonacci scale (skipping the first number): 1, 2, 3, 5, 8, 13, 21, 34.
 The fibonacci scale was chosen because it reflects the uncertainty of estimating larger user stories.
 - We have decided to conduct two rounds of voting for story point esitmates. The
 first vote will be for the purpose of gaining an idea of how everyone feels about the difficulty
 of each user story. Outlying opinions will be quickly voiced to either nudge everyone else's
 estimates closer to theirs or vice versa. The second round of voting will solidify the estimates
-as we will take the median of the votes for the user story points.
+as we will take the mean of the votes (rounded to the nearest on the fibonacci scale) for the user story points.
 
 ## Meetings
 - Meetings were primarily in person, within study rooms. Those that could not attend would communicate through Facebook messenger. Meetings were also held
