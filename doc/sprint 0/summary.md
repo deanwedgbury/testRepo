@@ -26,7 +26,7 @@ Key Users:
   
 - Researchers or Educational Purposes:
   These people need particular data regarding the environment of the plant analyzed and graphed for evaluation. The plant buddy, will 
-  complete these rudimentary steps, so the information can be evaluated immediately and is persistently updated. 
+  complete these rudimentary steps, so that information can be evaluated immediately and is persistently updated. 
   
 
  
