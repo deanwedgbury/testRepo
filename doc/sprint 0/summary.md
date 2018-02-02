@@ -24,7 +24,7 @@ Key Users:
 - Small Local Businesses (for decoration as an alternative to fake plants):
   These people want to make their business look better and more environmentally friendly, so instead of using fake plants, they use real plants, using this system to maintain them.
   
- -Researchers or Educational Purposes:
+- Researchers or Educational Purposes:
   These people need particular data regarding the environment of the plant analyzed and graphed for evaluation. The plant buddy, will 
   complete these rudimentary steps, so the information can be evaluated immediately and is persistently updated. 
   
