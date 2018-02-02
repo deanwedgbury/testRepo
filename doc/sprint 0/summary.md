@@ -24,6 +24,8 @@ Key Users:
 - Small Local Businesses (for decoration as an alternative to fake plants):
   These people want to make their business look better and more environmentally friendly, so instead of using fake plants, they use real plants, using this system to maintain them.
   
+- Researchers: These people want to see how different data such as humidity, temperature and sunlight change over time in a specific area.
+  
 
  
 Principles: 
