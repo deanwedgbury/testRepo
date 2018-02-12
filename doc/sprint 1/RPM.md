@@ -9,7 +9,7 @@ Participants:
   - Roman Huts
   - Dominik Loncar
   
-##Meeting Documantation: 
+## Meeting Documantation: 
  
 Major release goals:
 
