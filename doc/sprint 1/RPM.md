@@ -1,21 +1,27 @@
 
 Date: Friday, Feb 9
 
-Participants: (fill this in)
+Participants:
   - Andersen Chan
-  -
+  - Eugene Au Yeung
+  - Dean Wedgbury
+  - Daniel Wang
+  - Roman Huts
+  - Dominik Loncar
   
-Meeting Documantation: (indent all afterwards)
+##Meeting Documantation: 
  
 Major release goals:
 
-    The goal of this release is to make a product that can automatically water plants based on 
+  The goal of this release is to make a product that can automatically water plants based on 
   measured data (see summary.md for more details).
   
   We plan to implement all the user stories in PB.md, except for the user stories under the label "Extra Features". 
-    (and other stories too apparently)
+    (TODO: and other stories too apparently)
   
-  
+  (TODO: calculate after the final changes)
+  Total points: 
+  Predicted velocity:
   
 Release plan:
 
@@ -25,7 +31,7 @@ Release plan:
   Sprint 2: Due Mar 8
   Sprint 3: Due Mar 22
   
-  Completion date: Mar 22 (Confirm)
+  Completion date: Mar 22 (TODO: Confirm)
   
   
 Sprint 1 goals:
@@ -50,16 +56,16 @@ Sprint 1 goals:
   - Sprint1 Meeting: Friday, Feb. 9:
     Goal: Assign tasks, order materials, (more?)
   - Review Meeting: Tuesday, Feb. 13
-    Review each tem member's completed work, and make small changes accordingly,  
+    Goal: Review each tem member's completed work, and make small changes accordingly,  
   - Retrospective Meeting: Thursday, Feb. 15
-    Review, and document sprint1 observations.
+    Goal: Review, and document sprint1 observations.
     
 Sprint 2 goals:
   
   We will be planning to implement the following features:
   - Create a web application to display our data to the user
 
-  In particular, we
+  In particular, we plan to implement the following user stories (from PB.md):
   - As a visual person, I want to see a history of the plants data over time, 
     so that I have a better understanding of my plant's progress. [1/21]
   - As a XXX, I want to have a simple, intuitive, user friendly and visually appealing website,
@@ -67,11 +73,11 @@ Sprint 2 goals:
     
  Sprint 3 goals:
  
-   We will be planning to implement the following features:
-   - Create a mobile application so that users can manage their plant on the go
+  We will be planning to implement the following features:
+  - Create a mobile application so that users can manage their plant on the go
  
-   In particular,
-   - As a mobile user, I would like to be able to use my device to use the Plant Buddy on my phone,
+  In particular, we plan to implement the following user stories (from PB.md):
+  - As a mobile user, I would like to be able to use my device to use the Plant Buddy on my phone,
     so that I can keep track of my plant while on the go. [8/34]
  
 
