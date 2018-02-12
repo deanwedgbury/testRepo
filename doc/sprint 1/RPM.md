@@ -9,9 +9,9 @@ Participants:
   - Roman Huts
   - Dominik Loncar
   
-## Meeting Documantation: 
+# Meeting Documantation: 
  
-Major release goals:
+## Major release goals:
 
   The goal of this release is to make a product that can automatically water plants based on 
   measured data (see summary.md for more details).
@@ -23,18 +23,18 @@ Major release goals:
   Total points: 
   Predicted velocity:
   
-Release plan:
+## Release plan:
 
   The release will contain 4 sprints as follows: 
-  Sprint 0: Due Feb 1
-  Sprint 1: Due Feb 15
-  Sprint 2: Due Mar 8
-  Sprint 3: Due Mar 22
+  - Sprint 0: Due Feb 1
+  - Sprint 1: Due Feb 15
+  - Sprint 2: Due Mar 8
+  - Sprint 3: Due Mar 22
   
   Completion date: Mar 22 (TODO: Confirm)
   
   
-Sprint 1 goals:
+## Sprint 1 goals:
 
   We plan to implement the following features:
   - Measuring moisture, temperature, and humidity in the environment
@@ -60,7 +60,7 @@ Sprint 1 goals:
   - Retrospective Meeting: Thursday, Feb. 15
     Goal: Review, and document sprint1 observations.
     
-Sprint 2 goals:
+## Sprint 2 goals:
   
   We will be planning to implement the following features:
   - Create a web application to display our data to the user
@@ -71,7 +71,7 @@ Sprint 2 goals:
   - As a XXX, I want to have a simple, intuitive, user friendly and visually appealing website,
     so that I can look forward to checking on my plant every day. [3/21]
     
- Sprint 3 goals:
+ ## Sprint 3 goals:
  
   We will be planning to implement the following features:
   - Create a mobile application so that users can manage their plant on the go
