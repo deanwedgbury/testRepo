@@ -11,7 +11,7 @@ Which is basically being able to measure the temperature, humidity, and moisture
 
 -------------------------------------------------------
 
-We determined what parts would be needed for the project:
+We determined what parts would be needed for the project:<br />
 LEDs<br />
 Rasperry Pis<br />
 Battery<br />
@@ -24,7 +24,7 @@ We ordered the parts we did not have already on hand from Amazon, being the Mois
 
 --------------------------------------------------------
 
-We had a task breakdown, where we split up the tasks within the group, mainly we assigned a deliverable to each person as follows:
+We had a task breakdown, where we split up the tasks within the group, mainly we assigned a deliverable to each person as follows:<br />
 RPM.md - Andersen<br />
 PB.md - Daniel<br />
 sprint1.md - Eugene<br />
