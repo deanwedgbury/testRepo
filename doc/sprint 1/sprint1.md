@@ -25,11 +25,11 @@ We ordered the parts we did not have already on hand from Amazon, being the Mois
 --------------------------------------------------------
 
 We had a task breakdown, where we split up the tasks within the group, mainly we assigned a deliverable to each person as follows:
-RPM.md - Andersen
-PB.md - Daniel
-sprint1.md - Eugene
-System Design Doc - Dean
-1 Major Feature (demo software), moisture testing and watering - Dominik
-SR1.md - Roman
-Connecting Rasperry Pi to db - Andersen
-Project Tracking with Pivotal - All	
+RPM.md - Andersen<br />
+PB.md - Daniel<br />
+sprint1.md - Eugene<br />
+System Design Doc - Dean<br />
+1 Major Feature (demo software), moisture testing and watering - Dominik<br />
+SR1.md - Roman<br />
+Connecting Rasperry Pi to db - Andersen<br />
+Project Tracking with Pivotal - All	<br />
