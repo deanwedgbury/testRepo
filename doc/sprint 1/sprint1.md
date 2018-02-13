@@ -12,13 +12,13 @@ Which is basically being able to measure the temperature, humidity, and moisture
 -------------------------------------------------------
 
 We determined what parts would be needed for the project:
-LEDs
-Rasperry Pis
-Battery
-Relay
-Moisture Sensor
-Pump
-Pot
+LEDs<br />
+Rasperry Pis<br />
+Battery<br />
+Relay<br />
+Moisture Sensor<br />
+Pump<br />
+Pot<br />
 
 We ordered the parts we did not have already on hand from Amazon, being the Moisture Sensor and a Peristaltic Pump
 
