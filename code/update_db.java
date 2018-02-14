@@ -18,7 +18,7 @@ public class Updator{
 	public Updator(){}
 
 	//establish a connection to be used for this session. Returns true if connection is sucessful
-	public boolean connectDB(connection_name){
+	public boolean connectDB(String connection_name){
 		try {
       		connection = DriverManager.getConnection(connection_name); 
     	} catch (SQLException e) {
@@ -48,7 +48,7 @@ public class Updator{
 	    return true;
 	  }
 
-  	public boolean updateDB(iteration, moisture){
+  	public boolean updateDB(int iteration, int moisture){
 	  	try {
 	  		//we will prepare the statement later
 	      sqlText = "INSERT INTO observed_data VALUES(" + iteration + ", " + moisture + ");";
@@ -63,10 +63,10 @@ public class Updator{
 		//if(args.length == 0){
 
 		//}
-		iteration = args[1]
-		moisture = args[2]
+		iteration = args[1];
+		moisture = args[2];
 		Updator u = new Updator();
-		u.connectDB();
+		u.connectDB("jdbc:postgresql://mcsdb.utm.utoronto.ca:5432/chanande_309", "chanande", "40156");
 		u.updateDB(iteration, moisture);
 		u.disconnectDB();
 
