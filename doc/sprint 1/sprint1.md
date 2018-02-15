@@ -9,6 +9,8 @@ As a plant enthusiast, I want to store and retrieve relevant data on my plants s
 
 Which is basically being able to measure the temperature, humidity, and moisture, additionally watering the plant at certain moisture levels, and storing this measured data in a database.
 
+We were not able to start the last user story listed because we do not have a database to use.
+
 -------------------------------------------------------
 
 We determined what parts would be needed for the project:<br />
