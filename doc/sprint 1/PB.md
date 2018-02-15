@@ -14,7 +14,7 @@ Point estimate is the fibanacci sequence up to 34, where 34 is the hardest.
 
 ## Watering
 - As a hobbyist, I want to be able to water my plant manually, with the press of a button so that i can control exactly when i water my plant. [1/8]
-- As a hobbyist/beginner, I want to have my plant automatically watered based on what is best for the plant, so that I can travel without worrying about my plants. [1/13]
+- As a hobbyist/beginner, I want to have my plant automatically watered based on what is best for the plant, so that I can work on other activities without worry. [1/13]
 - As a researcher/beginner/hobbyist, I want to be able to know when I am running low on water, so that I can know when I have to refill the water. [5/13]
 - As a researcher, I want to add a light so that I can grow and monitor my plants indoors without sunlight. [7/3]
 	
