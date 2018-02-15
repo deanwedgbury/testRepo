@@ -7,7 +7,22 @@
 - Andersen Chan - chanande
 
 ## Unfinished
-- 
+### The following User Stories are left:
+- [WEB] Store Relevant Plant Data (Humidity, Temperature, Moisture)
+- [EXTRA] Track Plant Nutrition
+- [EXTRA] Animal Deterrent
+- [EXTRA] Continue Watering When Offline
+- [EXTRA] Mobile Support (Android Application)
+- [EXTRA] Light for Indoor Growing
+- [WATERING] View Water Reservoir Level
+- [WEB] User Friendly and Visually Appealing Website
+- [WEB] View Plant Data History
+### The following User Stories are completed:
+- [WATERING] Retrieve plant data (Humidity, Temperature, Mositure)
+- [WATERING] Automatic Watering
+- [WATERING] Manual Watering Option
+### The following User Story was split into tasks:
+- [WEB] Store and Retrieve Relevant Plant Data
 
 ## Practices to Keep
 Writing out sprint deliverables on a whiteboard
