@@ -59,14 +59,16 @@ public class Updator{
 	    catch (SQLException e) {
 	      return false;
 	    }
+		return true;
   	}
 
 	public static void main(String[] args){
 		//if(args.length == 0){
 
 		//}
-		int iteration = args[1];
-		int moisture = args[2];
+		
+		int iteration = Integer.parseInt(args[0]);
+		int moisture = Integer.parseInt(args[1]);
 		Updator u = new Updator();
 		u.connectDB("jdbc:postgresql://mcsdb.utm.utoronto.ca:5432/chanande_309", "chanande", "40156");
 		u.updateDB(iteration, moisture);
