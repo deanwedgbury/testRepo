@@ -9,7 +9,7 @@ As a plant enthusiast, I want to store and retrieve relevant data on my plants s
 
 Which is basically being able to measure the temperature, humidity, and moisture, additionally watering the plant at certain moisture levels, and storing this measured data in a database.
 
-So we only started 4 user stories, not all the user stories. This is because we could not fit every user story into the sprint, or some of the other user stories depend on these four and we need to finish these first.
+We only started 4 user stories, not all the user stories. This is because some of the user stories depend on these four and we need to finish these first. We also could not fit every user story into this sprint.
 -------------------------------------------------------
 
 We determined what parts would be needed for the project:<br />
