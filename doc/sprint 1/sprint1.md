@@ -24,12 +24,14 @@ We ordered the parts we did not have already on hand from Amazon, being the Mois
 
 --------------------------------------------------------
 
-We had a task breakdown, where we split up the tasks within the group, mainly we assigned a deliverable to each person as follows:<br />
-RPM.md - Andersen<br />
-PB.md - Daniel<br />
-sprint1.md - Eugene<br />
-System Design Doc - Dean<br />
-1 Major Feature (demo software), moisture testing and watering - Dominik<br />
-SR1.md - Roman<br />
-Connecting Rasperry Pi to db - Andersen<br />
-Project Tracking with Pivotal - All	<br />
+We had a task breakdown, where we split up the tasks within the group, we assigned each team member deliverables.
+
+Task breakdown:
+
+[WATERING] Automatic Watering - Dominik Loncar
+[WEB] Store and Retrieve Relevant Plant Data - Andersen Chan
+[WATERING] Manual Watering Option - Dominik Loncar
+[HARDWARE] Track Moisture in Soil of a Plant - Wai Lam Eugene Au Yeung
+[HARDWARE] Track Temperature In Area of the Plant - Daniel Wang
+[HARDWARE] Track Humidity In Area of the Plant - Dean Wedgbury
+[HARDWARE] LCD Screen to monitor live data - Roman Huts
