@@ -27,11 +27,11 @@ We ordered the parts we did not have already on hand from Amazon, being the Mois
 We had a task breakdown, where we split up the tasks within the group, we assigned each team member deliverables.
 
 Task breakdown:
-
-[WATERING] Automatic Watering - Dominik Loncar
-[WEB] Store and Retrieve Relevant Plant Data - Andersen Chan
-[WATERING] Manual Watering Option - Dominik Loncar
-[HARDWARE] Track Moisture in Soil of a Plant - Wai Lam Eugene Au Yeung
-[HARDWARE] Track Temperature In Area of the Plant - Daniel Wang
-[HARDWARE] Track Humidity In Area of the Plant - Dean Wedgbury
-[HARDWARE] LCD Screen to monitor live data - Roman Huts
+<br />
+[WATERING] Automatic Watering - Dominik Loncar<br />
+[WEB] Store and Retrieve Relevant Plant Data - Andersen Chan<br />
+[WATERING] Manual Watering Option - Dominik Loncar<br />
+[HARDWARE] Track Moisture in Soil of a Plant - Wai Lam Eugene Au Yeung<br />
+[HARDWARE] Track Temperature In Area of the Plant - Daniel Wang<br />
+[HARDWARE] Track Humidity In Area of the Plant - Dean Wedgbury<br />
+[HARDWARE] LCD Screen to monitor live data - Roman Huts<br />
