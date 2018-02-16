@@ -17,13 +17,6 @@ Participants:
   measured data (see summary.md for more details).
   
   We plan to implement all the user stories in PB.md, except for the user stories under the label "Extra Features". 
-    (TODO: and other stories too apparently)
-  
-  (TODO: calculate after the final changes)
-  
-  Total points: 
-  
-  Predicted velocity:
   
 ## Release plan:
 
@@ -33,7 +26,7 @@ Participants:
   - Sprint 2: Due Mar 8
   - Sprint 3: Due Mar 22
   
-  Completion date: Mar 22 (TODO: Confirm)
+  Completion date: Mar 22
   
   
 ## Sprint 1 goals:
@@ -56,15 +49,11 @@ Participants:
     
   Meeting Schedule:
   - Sprint1 Meeting: Friday, Feb. 9:
-    Goal: Assign tasks, order materials, (more?)
+    Goal: Assign tasks, and order materials for the project
   - Review Meeting: Tuesday, Feb. 13
     Goal: Review each tem member's completed work, and make small changes accordingly,  
   - Retrospective Meeting: Thursday, Feb. 15
     Goal: Review, and document sprint1 observations.
- 
- How we will implement these features:
- 
-  We will have an arduino reading in values from different sensors, turning on the valve to water the plant based on these values, and sending this data to a raspberry pi. The raspberry pi will be running a script that, every once in a while, reads these values, and gives them to a java program that will connect to our database, and update it. Once these values are in the database, we can do whatever we want with the data.
     
 ## Sprint 2 goals:
   
