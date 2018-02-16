@@ -7,7 +7,7 @@ Point estimate is the fibanacci sequence up to 34, where 34 is the hardest.
 ## Data
 
 - As a researcher, I want to be able to keep track of the humidity in the area of the Flora so I can better determine how humidity affects plant growth. [2/3]
-- As a researcher/hobbyist/beginner, I want to keep track of the temperature in the area of the Flora so I can determine if the area of the Flora is to hot to sustain proper plant growth. [2/3]
+- As a researcher/hobbyist/beginner, I want to keep track of the temperature in the area of the Flora so I can determine if the area of the Flora is too hot to sustain proper plant growth. [2/3]
 - As a researcher/hobbyist/beginner, I want to know when the plant needs to be watered by checking the moisture of the soil. [2/3]
 - As a researcher/hobbyist/beginner, I want to be able to tell whether or not my plant is receiving enough sunlight for it's growth. [2/3]
 
