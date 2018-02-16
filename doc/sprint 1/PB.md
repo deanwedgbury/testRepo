@@ -12,7 +12,7 @@ Point estimate is the fibanacci sequence up to 34, where 34 is the hardest.
 - As a researcher/hobbyist/beginner, I want to be able to tell whether or not my plant is receiving enough sunlight for it's growth. [2/3]
 
 ## Interface
-- As a researcher, I want to be able to monitor relevant data regarding the humidity, temperature, sunlight, and soil moisture of my plant offline or through the device itself. [3/5]
+- As a researcher, I want to be able to monitor relevant data regarding the humidity, temperature, sunlight, and soil moisture of my plant offline and through a self-contained LCD. [3/5]
 
 ## Web
 - As a researcher, I want to store and retrieve relevant data on my plants so that I can keep track of growth of local flora and analyze their growth. [1/13]
