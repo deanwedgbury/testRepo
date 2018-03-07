@@ -4,13 +4,13 @@ Point estimate is the fibanacci sequence up to 34, where 34 is the hardest.
 
 [Priority/Point estimate]
 
+## Data
+- As a researcher/hobbyist/beginner, I want to be able to tell whether or not my plant is receiving enough sunlight for it's growth. [2/3]
+
 ## Web
-- As a researcher, I want to store relevant data on my plants so that I can keep track of growth of local flora and analyze their growth. [1/7]
+- As a researcher, I want to store and retrieve relevant data on my plants so that I can keep track of growth of local flora and analyze their growth. [1/13]
 - As a beginner, I want to see a history of the plants data over time, so that I have a better understanding of my plant's progress. [1/21]
 - As a researcher/beginner/hobbyist, I want to have a simple, intuitive, user friendly and visually appealing website so that I can look forward to checking on my plant every day. [3/21]
-
-## Measuring extra data
-- As a beginner/researcher, I would like to track how much sunlight/temperature/humidity my plant is getting so that I can determine if I should move it. [5/21]
 
 ## Watering
 - As a researcher/beginner/hobbyist, I want to be able to know when I am running low on water, so that I can know when I have to refill the water. [5/13]
@@ -24,6 +24,15 @@ Point estimate is the fibanacci sequence up to 34, where 34 is the hardest.
 - As a researcher, I want to be able to measure my plant’s nutrition so that I know how healthy my plant is. [7/34]
 
 ## COMPLETED BELOW
+
+## Interface
+- As a researcher, I want to be able to monitor relevant data regarding the humidity, temperature, sunlight, and soil moisture of my plant offline and through a self-contained LCD. [3/5]
+
+## Watering
 - As a hobbyist, I want to be able to water my plant manually, with the press of a button so that i can control exactly when i water my plant. [1/8]
 - As a hobbyist/beginner, I want to have my plant automatically watered based on what is best for the plant, so that I can work on other activities without worry. [1/13]
-- As a researcher, I want to retrieve relevant data on my plants so that I can keep track of growth of local flora and analyze their growth. [1/6]
+
+## Data
+- As a researcher/hobbyist/beginner, I want to know when the plant needs to be watered by checking the moisture of the soil. [2/3]
+- As a researcher, I want to be able to keep track of the humidity in the area of the Flora so I can better determine how humidity affects plant growth. [2/3]
+- As a researcher/hobbyist/beginner, I want to keep track of the temperature in the area of the Flora so I can determine if the area of the Flora is too hot to sustain proper plant growth. [2/3]
