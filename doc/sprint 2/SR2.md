@@ -8,14 +8,19 @@
 
 
 ## Unfinished
-[WEB] View Plant Data History
-
-[HARDWARE] Track Sunlight in the area of Flora
-
-[WATERING] View Water Reservoir Levels
 ### The following User Stories are left:
+- [WEB] View Plant Data History
+- [HARDWARE] Track Sunlight in the area of Flora
+- [WATERING] View Water Reservoir Levels
+- [EXTRA] Light for Indoor Growing
+- [EXTRA] Track Plant Nutrition
+- [EXTRA] Mobile Support (Android Application)
+- [EXTRA] Continue Watering When Offline
+- [EXTRA] Animal Deterrent
 
 ### The following User Stories are completed:
+- [WEB] Store and Retrieve Relevant Plant Data
+- [WEB] User Friendly and Visually Appealing Website
 
 ### The following User Story was split into tasks:
 
