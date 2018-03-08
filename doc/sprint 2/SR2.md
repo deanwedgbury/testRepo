@@ -9,7 +9,6 @@
 
 ## Unfinished
 ### The following User Stories are left:
-- [WEB] View Plant Data History
 - [HARDWARE] Track Sunlight in the area of Flora
 - [WATERING] View Water Reservoir Levels
 - [EXTRA] Light for Indoor Growing
@@ -19,10 +18,11 @@
 - [EXTRA] Animal Deterrent
 
 ### The following User Stories are completed:
-- [WEB] Store and Retrieve Relevant Plant Data
 - [WEB] User Friendly and Visually Appealing Website
 
 ### The following User Story was split into tasks:
+- [WEB] View Plant Data History
+- [WEB] Store and Retrieve Relevant Plant Data
 
 
 ## Practices to Keep
