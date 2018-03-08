@@ -8,6 +8,9 @@
 
 
 ## Unfinished
+[WEB] View Plant Data History
+[HARDWARE] Track Sunlight in the area of Flora
+[WATERING] View Water Reservoir Levels
 ### The following User Stories are left:
 
 ### The following User Stories are completed:
