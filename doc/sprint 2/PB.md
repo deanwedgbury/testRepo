@@ -26,7 +26,8 @@ Point estimate is the fibanacci sequence up to 34, where 34 is the hardest.
 ## COMPLETED BELOW
 
 ## Interface
-- As a researcher, I want to be able to monitor relevant data regarding the humidity, temperature, sunlight, and soil moisture of my plant offline and through a self-contained LCD. [3/5]
+- As a researcher, I want to be able to monitor relevant data regarding the humidity, temperature, sunlight, and soil moisture of my plant offline and through a self-contained LCD. [3/5] 
+
 
 ## Watering
 - As a hobbyist, I want to be able to water my plant manually, with the press of a button so that i can control exactly when i water my plant. [1/8]
@@ -36,3 +37,6 @@ Point estimate is the fibanacci sequence up to 34, where 34 is the hardest.
 - As a researcher/hobbyist/beginner, I want to know when the plant needs to be watered by checking the moisture of the soil. [2/3]
 - As a researcher, I want to be able to keep track of the humidity in the area of the Flora so I can better determine how humidity affects plant growth. [2/3]
 - As a researcher/hobbyist/beginner, I want to keep track of the temperature in the area of the Flora so I can determine if the area of the Flora is too hot to sustain proper plant growth. [2/3]
+
+## Web
+- As a researcher/beginner/hobbyist, I want to have a simple, intuitive, user friendly and visually appealing website so that I can look forward to checking on my plant every day. [3/21]
