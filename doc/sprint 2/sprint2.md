@@ -44,4 +44,4 @@ More details on how we will accomplish these tasks:
 
 ## Goals for sprint3:
 
-- display the stuff on processing using a processing library for javascript p3.js
+- Display graphs of our data using a processing library for javascript. More details will be discussed in sprint3.
