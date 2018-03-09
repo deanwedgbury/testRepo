@@ -10,7 +10,7 @@ Point estimate is the fibanacci sequence up to 34, where 34 is the hardest.
 ## Web
 - As a researcher, I want to store and retrieve relevant data on my plants so that I can keep track of growth of local flora and analyze their growth. [1/13]
 - As a beginner, I want to see a history of the plants data over time, so that I have a better understanding of my plant's progress. [1/21]
-- As a researcher/beginner/hobbyist, I want to have a simple, intuitive, user friendly and visually appealing website so that I can look forward to checking on my plant every day. [3/21]
+
 
 ## Watering
 - As a researcher/beginner/hobbyist, I want to be able to know when I am running low on water, so that I can know when I have to refill the water. [5/13]
