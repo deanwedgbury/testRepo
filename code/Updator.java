@@ -70,7 +70,7 @@ public class Updator{
 		int iteration = Integer.parseInt(args[0]);
 		int moisture = Integer.parseInt(args[1]);
 		Updator u = new Updator();
-		u.connectDB("jdbc:postgresql://mcsdb.utm.utoronto.ca:5432/chanande_309", "chanande", "40156");
+		u.connectDB("jdbc:postgresql://mcsdb.utm.utoronto.ca:5432/csc301app3", "csc301app3", "29lnclkmlkn2oi34nc,.g");
 		u.updateDB(iteration, moisture);
 		u.disconnectDB();
 
