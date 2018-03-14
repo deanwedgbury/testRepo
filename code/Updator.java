@@ -41,28 +41,85 @@ public class Updator{
 	    try {
 	      if (connection != null)
 	        connection.close();
+	    	else{
+	    		System.out.println("Connection is already closed!");
+	    	}
 	    }
 	    catch(SQLException e) {
+	    	System.out.println("Failed to close connection!");
 	      return false;    
 	    }
 	    return true;
 	  }
 
   	public boolean updateDB(int iteration, int moisture){
+
   		String sqlText;
 
 	  	try {
-	  		//we will prepare the statement later
-	      sqlText = "INSERT INTO observed_data VALUES(" + iteration + ", " + moisture + ");";
-	      rs = sql.executeQuery(sqlText);
+
+	  		//Create a Statement for executing SQL queries
+			sql = connection.createStatement(); 
+
+			if (sql == null){
+				System.out.println("Could not create statement.");
+				return false;
+			}
+
+	  		System.out.println("Executing update...");
+
+	        //sqlText = "INSERT INTO observed_data (iteration, moisture) VALUES(" + iteration + ", " + moisture + ");";
+	        //sqlText = "INSERT INTO observed_data (iteration, moisture) VALUES (100, 100);";
+	        sqlText = "UPDATE observed_data SET moisture=100 WHERE iteration=1;";
+
+	        /* 
+	        TODO: this throws a SQLException, which only occurs when
+	        if a database access error occurs, 
+	        this method is called on a closed Statement, 
+	        the given SQL statement produces a ResultSet object, 
+	        the method is called on a PreparedStatement or CallableStatement
+	        */
+			sql.executeUpdate(sqlText);
+
+	        /*
+	  		sqlText = "INSERT INTO observed_data (iteration, moisture) VALUES(?, ?);";
+	  		ps = connection.prepareStatement(sqlText);
+	  		ps.setInt(1, iteration);
+	  		ps.setInt(2, moisture);
+
+	  		System.out.println("Done preparing statement...");
+
+	  		ps.executeUpdate();
+	  		*/
+
+	        
+	        
+	        System.out.println("Done executing update.");
 	    }
 	    catch (SQLException e) {
+	    	System.out.println("Failed to update database!");
 	      return false;
 	    }
 		return true;
   	}
 
+  	public boolean printDB(){
+  		String sqlText;
+	  	try {
+			sql = connection.createStatement(); 
+	  		System.out.println("Executing query...");
+	        sqlText = "SELECT * FROM observed_data;";
+	        rs = sql.executeQuery(sqlText);
+	        System.out.println("Done executing query.");
+	    }
+	    catch (SQLException e) {
+	    	System.out.println("Failed to read database!");
+	      return false;
+	    }
+		return true;
+  	}
 	public static void main(String[] args){
+		
 		//if(args.length == 0){
 
 		//}
@@ -72,6 +129,7 @@ public class Updator{
 		Updator u = new Updator();
 		u.connectDB("jdbc:postgresql://mcsdb.utm.utoronto.ca:5432/csc301app3", "csc301app3", "29lnclkmlkn2oi34nc,.g");
 		u.updateDB(iteration, moisture);
+		u.printDB();
 		u.disconnectDB();
 
 	}
