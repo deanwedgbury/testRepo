@@ -11,6 +11,7 @@ do
 	sleep 10
 	#moisture = ser.readline()
 	moisture=1000
-	java Updator $moisture $i
+	javac Updator.java
+	java -cp postgresql-42.1.4.jar:. Updator $moisture $i
 	i=$[$i+1]
 done
