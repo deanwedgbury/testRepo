@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+//<<<<<<< HEAD
 
 import java.sql.*;
 
@@ -135,7 +135,7 @@ public class Updator{
 
 	}
 }
-=======
+/*=======
 
 import java.sql.*;
 
@@ -217,7 +217,7 @@ public class Updator{
 	        the given SQL statement produces a ResultSet object, 
 	        the method is called on a PreparedStatement or CallableStatement
 	        */
-			sql.executeUpdate(sqlText);
+			//sql.executeUpdate(sqlText);
 
 	        /*
 	  		sqlText = "INSERT INTO observed_data (iteration, moisture) VALUES(?, ?);";
@@ -231,7 +231,7 @@ public class Updator{
 	  		*/
 
 	        
-	        
+/*	        
 	        System.out.println("Done executing update.");
 	    }
 	    catch (SQLException e) {
@@ -273,3 +273,4 @@ public class Updator{
 	}
 }
 >>>>>>> 38a260e2d080034a2d12313ec04a43de00d2e379
+*/
