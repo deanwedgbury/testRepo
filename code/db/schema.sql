@@ -1,24 +1,59 @@
-DROP TABLE IF EXISTS observed_data CASCADE;
-DROP TABLE IF EXISTS appuser CASCADE;
-DROP TABLE IF EXISTS userPlants CASCADE;
+DROP TABLE IF EXISTS user;
+DROP TABLE IF EXISTS owner;
+DROP TABLE IF EXISTS history;
+DROP TABLE IF EXISTS optimal;
+DROP TABLE IF EXISTS manualWater;
+DROP TABLE IF EXISTS plant;
 
-CREATE TABLE observed_data (
-	iteration	NUMERIC(1000, 0)	PRIMARY KEY,
-	moisture	NUMERIC(1000, 1000)
-);
-
-create table appuser (
-	id VARCHAR(50) PRIMARY KEY,
+CREATE TABLE user (
+	username VARCHAR(50) PRIMARY KEY,
 	password VARCHAR(50),
-	name VARCHAR(50),
-	age INT,
-	sex VARCHAR(6),
-	phone BIGINT,
-	location VARCHAR(50)
+	name VARCHAR(50)
 );
 
-create table userPlants (
-	ownerID VARCHAR(50) PRIMARY KEY REFERENCES appuser(id) ON DELETE CASCADE,
-	plantName VARCHAR(50),
-	minMoisture INT
+CREATE TABLE owner (
+	plantID INTEGER PRIMARY KEY AUTOINCREMENT REFERENCES plant(plantID),
+	username VARCHAR(50) REFERENCES user(username)
 );
+
+CREATE TABLE plant (
+	plantID INTEGER PRIMARY KEY,
+	plantType VARCHAR(50),
+	plantName VARCHAR(50)
+);
+
+CREATE TABLE history (
+	plantID INTEGER,
+	recordDate DATE,
+	moisture INT,
+	humidity INT,
+	temp INT,
+	PRIMARY KEY(plantID, recordDate)
+);
+
+CREATE TABLE optimal (
+	plantType VARCHAR(50) PRIMARY KEY,
+	optMoisture INT,
+	optHumidity INT,
+	optTemp INT
+
+);
+
+CREATE TABLE manualWater (
+	plantID INTEGER PRIMARY KEY AUTOINCREMENT REFERENCES plant(plantID),
+	doWater BOOLEAN
+);
+
+-- INSERT Values for DEMO
+
+INSERT INTO user(username, password, name) VALUES ("a", "a", "a");
+
+INSERT INTO owner(plantID, username) VALUES (1, "a");
+INSERT INTO owner(plantID, username) VALUES (2, "a");
+INSERT INTO owner(plantID, username) VALUES (3, "a");
+INSERT INTO owner(plantID, username) VALUES (4, "a");
+
+INSERT INTO plant(plantID, plantType, plantName) VALUES (1, "Succulent", "Hedgehog Aloe");
+INSERT INTO plant(plantID, plantType, plantName) VALUES (2, "Succulent", "Snake Plant");
+INSERT INTO plant(plantID, plantType, plantName) VALUES (3, "Rose", "Red Rose");
+INSERT INTO plant(plantID, plantType, plantName) VALUES (4, "Fern", "Ostrich Fern");
