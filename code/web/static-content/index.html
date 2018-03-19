@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta HTTP-EQUIV="EXPIRES" CONTENT="-1">
+		<title>Plant Buddy</title>
+		<script language="javascript" src="jquery-3.3.1.min.js" > </script>
+		<script language="javascript" src="ww.js" > </script>
+		<script language="javascript" src="index.js" > </script>
+		<link rel="stylesheet" type="text/css" href="style.css" > </script>
+		<link href="https://fonts.googleapis.com/css?family=Armata" rel="stylesheet" />
+		<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+		<link rel="shortcut icon" type="image/x-icon" href="icons/pb_icon.png"/>
+
+		<script>
+			$(function(){
+				//onVisit();
+				$("#plants").hide();
+				$("#newuser").hide();
+				$("#accountPage").hide();
+				$("#menu").hide();
+				$("#statistics").hide();
+			});
+
+		</script>
+
+
+
+	</head>
+	<body bgcolor="ffffff">
+		<center>
+			<h3>Plant Buddy</h3>
+
+			<form id="statistics">
+				<h1>Plant Statistics</h1>
+				<table id="scores"> </table>
+				<br>
+				<input type="button" class="box" id="scoreBackToMenuButton" value="Go Back To Menu" onclick="switchView('statistics', 'menu')"><br>
+			</form>
+
+
+
+			<form id="menu">
+				<h1>Menu</h1>
+				<input class="box" type="button" id="showPlantsButton" value="View My Plants" onclick="showPlants()"><br>
+				<br>
+				<input class="box" type="button" id="showStatisticsButton" value="Plant Statistics" onclick="menuToStatistics()"><br>
+				<br>
+				<input class="box" type="button" id="showAccountPageButton" value="Account Page" onclick="showAccountPage()"><br>
+				<br>
+				<input class="box" type="button" id="logoutButton" value="Logout" onclick="switchView('menu', 'login')"><br>
+
+ 			</form>
+
+			<form id="login">
+				<h1>Login</h1>
+				<label> Username: </label>
+					<input class="input" type="text" id="loginUsername" pattern="[A-Za-z0-9]*" maxlength="20"><br>
+				<label> Password: </label>
+					<input class="input" type="password" id="loginPassword" pattern="[A-Za-z0-9]*" maxlength="20"><br>
+				<br>
+				<input class="box" type="button" value="Login" id="loginButton" onclick="validateForm(['loginUsername', 'loginPassword'], 'loginError', login)"><br>
+				<br>
+				<input class="box" type="button" value="Create New Account" id="newUserButton" onclick="switchView('login', 'newuser')">
+				<input type="button" value="print db" id="printdbButton" onclick="printDB()">
+				<p id="loginError"></p>
+			</form>
+
+			<form id="newuser">
+					<h1>Create Account</h1>
+
+				<label> Username: </label>
+					<input class="input" type="text" id="newUsername" pattern="[A-Za-z0-9]*" maxlength="20"><br>
+				<label> Password: </label>
+					<input class="input" type="password" id="newPassword" pattern="[A-Za-z0-9]*" maxlength="20"><br>
+				<br>
+				<label> Name: </label>
+					<input type="text" id="newName" pattern="[A-Za-z0-9]*" maxlength="20"><br>
+					<br>
+				<input class="box" type="button" value="Submit" id="createAccountButton" onclick="validateForm(['newUsername', 'newPassword', 'newName'], 'newuserError', addUser)"><br>
+				<br>
+				<input class="box" type="button" value="Go Back To Login" onclick="switchView('newuser', 'login')">
+				<p id="newuserError"></p>
+			</form>
+
+
+			<form id="accountPage">
+				<h1>Edit Account</h1>
+				<label> Your Username: </label><br>
+					<p id="yourUsername"></p><br>
+					<br>
+				<label> Change Password: </label><br>
+				<br>
+					<input type="password" id="changePassword" pattern="[A-Za-z0-9]*" maxlength="20"><br>
+					<br>
+				<label> Change Name: </label><br>
+					<p id="yourName"></p>
+					<input type="text" id="changeName" pattern="[A-Za-z0-9]*" maxlength="20"><br>
+				<br>
+				<input class="box" type="button" value="Submit" onclick="validateForm(['changePassword', 'changeName'], 'accountPageError', changeUser)"><br>
+				<br>
+				<input class="box" type="button" id="backToMenuButton" value="Go Back To Menu" onclick="switchView('accountPage', 'menu')"><br>
+				<p id="accountPageError"></p>
+			</form>
+
+			<form id="plants" class="plants">
+				<table id="plantsTable" class="plantsTable">
+					<!-- Filled by showPlants() -->
+				</table>
+				<br>
+				<input class="box" type="button" id="backToMenuButton" value="Go Back To Menu" onclick="switchView('plants', 'menu')">
+			</form>
+
+
+
+		</center>
+	</body>
+</html>
