@@ -16,7 +16,6 @@ do
 	moisture=1000
 
 	# Update the database
-	#sqlite3 database.db < update.sql
 	
 	#javac Updator.java
 	#java -cp postgresql-42.1.4.jar:. Updator $moisture $i
