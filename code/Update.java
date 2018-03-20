@@ -18,20 +18,14 @@ import java.util.StringJoiner;
 //import javax.net.ssl.HttpsURLConnection;
 import java.net.HttpURLConnection;
 
-public class Update {//extends AsyncTask<String, Void, String> {
+public class Update {
     static String server_response;
 
-    /*
-    @Override
-    protected String doInBackground(String... strings) {
-    */
     protected static String requestDb(String endpoint, String reqType, boolean sendingArgs, String arg){
         URL url;
         HttpURLConnection httpsConnection = null;
-        String port = "10260";
+        String port = "10263";
         String websitePath = "http://cslinux.utm.utoronto.ca:" + port + "/";
-        //String query = "select * from appuser;";
-        //String queryParams = "stuff";
 
 
         try {
@@ -99,7 +93,7 @@ public class Update {//extends AsyncTask<String, Void, String> {
 
                 outputStream.write(out);
                 outputStream.flush();
-                //outputStream.close();
+                outputStream.close();
 
                 System.out.println("Sending Data.");
             }
@@ -167,6 +161,9 @@ public class Update {//extends AsyncTask<String, Void, String> {
 
         //System.out.println("Testing login 3.");
         //requestDb("api/login", "POST", true, "");
+
+        // have flags for what to do
+        //and dont forget to include args
     }
 }
 

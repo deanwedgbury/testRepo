@@ -139,7 +139,7 @@ app.get('/api/getPlants2/', function (req, res) {
 			return;
 
 		} else {
-			let sql2 = 'SELECT plantType, plantName FROM owner AS o, plant AS p WHERE o.plantID=p.plantID AND o.username=$1;';
+			let sql2 = 'SELECT p.plantType, p.plantName, p.plantID FROM owner AS o, plant AS p WHERE o.plantID=p.plantID AND o.username=$1;';
 			db.all(sql2, [username], (err, rows) => {
 
 				if (err) {
@@ -157,6 +157,30 @@ app.get('/api/getPlants2/', function (req, res) {
 			});
 		}
 	});
+});
+
+app.put('/api/updateHistory', function (req, res){
+
+	console.log("in updateHistory in pb_node.js backend");
+	var pid = req.params.id;
+	var moisture = req.params.moisture;
+	var temp = req.params.temp;
+	var humidity = req.params.humidity;
+
+
+	var result = {};
+
+
+	let sql = 'INSERT INTO history VALUES($1, $2, $3, $4, $5);';
+ 	var d = new Date();
+ 	var ds = d.toString();
+	db.run(sql, [pid, ds, moisture, humidity, temp], (err, rows) => {
+		if (err) {
+			console.log(err.message);
+			throw err;
+		}
+	});
+
 });
 
 // add a new user
@@ -260,6 +284,27 @@ app.put('/api/changeUser/', function (req, res) {
 			});
 		}
 	}
+
+});
+
+
+app.put('/api/setWater/', function (req, res) {
+
+	console.log("in setWater in pb_node.js backend");
+	var pid = req.body.plantID;
+	var state = req.body.state;
+	console.log(pid);
+	console.log(req.body);
+	var result = {};
+
+
+	let sql = 'UPDATE manualWater SET doWater=$1 WHERE plantID=$2;';
+	db.run(sql, [state, pid], (err, rows) => {
+		if (err) {
+			console.log(err.message);
+			throw err;
+		}
+	});
 
 });
 
@@ -409,6 +454,29 @@ app.get('/api/getScores/', function (req, res) {
 	});
 });
 
+// get water state of a plant
+app.get('/api/getState/', function (req, res) {
+	var result = {};
+	console.log("Entered get water state AJAX");
+	var pid = req.query.id;
+	console.log("getting state for plant with id: "+pid);
+
+	let sql = 'SELECT * FROM manualWater WHERE plantID=$1';
+	db.all(sql, [pid], (err, rows) => {
+		result["state"] = [];
+		if (err){
+			throw err;
+		}
+
+		rows.forEach((row) => {
+			console.log(row);
+			result["state"].push(row["doWater"]);
+		});
+		console.log(result);
+		res.json(result);
+	});
+});
+
 function validateInput(inputs){
 	for (let i=0; i < inputs.length; i++){
 		var userinput = inputs[i];
@@ -442,23 +510,3 @@ function validateInput(inputs){
 	//on success
 	return true;
 }
-
-app.put('/api/water/', function (req, res) {
-	console.log("Entered water AJAX");
-	var value = parseInt(req.body.value);
-	console.log(value);
-
-
-	// if (!validateInput([value])){
-	// 	console.log("Invalid Input");
-	// 	//result['errors'] = "Invalid Input";
-	// } else {
-
-		let sql = 'UPDATE manualWater SET doWater = $2 WHERE plantID = $1;';
-		db.all(sql, [1, value], (err, rows) => {
-			if (err){
-				throw err;
-			}
-		});
-//	}
-});

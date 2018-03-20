@@ -5,7 +5,6 @@
 		<meta HTTP-EQUIV="EXPIRES" CONTENT="-1">
 		<title>Plant Buddy</title>
 		<script language="javascript" src="jquery-3.3.1.min.js" > </script>
-		<script language="javascript" src="ww.js" > </script>
 		<script language="javascript" src="index.js" > </script>
 		<link rel="stylesheet" type="text/css" href="style.css" > </script>
 		<link href="https://fonts.googleapis.com/css?family=Armata" rel="stylesheet" />
@@ -99,7 +98,7 @@
 				<br>
 				<input class="box" type="button" value="Submit" onclick="validateForm(['changePassword', 'changeName'], 'accountPageError', changeUser)"><br>
 				<br>
-				<input class="box" type="button" id="backToMenuButton" value="Go Back To Menu" onclick="switchView('accountPage', 'menu')"><br>
+				<input class="box" type="button" id="backToMenuButtonFromAccountPage" value="Go Back To Menu" onclick="switchView('accountPage', 'menu')"><br>
 				<p id="accountPageError"></p>
 			</form>
 
@@ -107,13 +106,8 @@
 				<table id="plantsTable" class="plantsTable">
 					<!-- Filled by showPlants() -->
 				</table>
-				<table id="manualWater" class="manualWater">
-					<button id="on" value="1" onclick="water()">water that plant</button>
-					<br>
-					<button id="off" value="0" onclick="stopWater()">stop water that plant</button>
-				</table>
 				<br>
-				<input class="box" type="button" id="backToMenuButton" value="Go Back To Menu" onclick="switchView('plants', 'menu')">
+				<input class="box" type="button" id="backToMenuButtonFromPlantsPage" value="Go Back To Menu" onclick="switchView('plants', 'menu')">
 			</form>
 
 
