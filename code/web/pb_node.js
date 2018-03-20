@@ -159,6 +159,31 @@ app.get('/api/getPlants2/', function (req, res) {
 	});
 });
 
+app.put('/api/updateHistory', function (req, res){
+
+	var pid = req.body.id;
+	var d = new Date();
+	var ds = d.toString();
+	var moisture = req.body.moisture;
+	var temp = req.body.temp;
+	var humidity = req.body.humidity;
+	console.log("updateHistory in pb_node.js backend (pid="+pid+", date="+ds+", moisture="+moisture+", humidity="+humidity+", temp="+temp+")");
+
+	var result = {};
+
+
+	let sql = 'INSERT INTO history VALUES($1, $2, $3, $4, $5);';
+	db.run(sql, [pid, ds, moisture, humidity, temp], (err, rows) => {
+		if (err) {
+			console.log(err.message);
+			throw err;
+		}
+		console.log("done updatehistory");
+		res.json(result);
+	});
+
+});
+
 // add a new user
 // you still have to login after creating accoutn tho
 app.put('/api/newuser/', function (req, res) {
