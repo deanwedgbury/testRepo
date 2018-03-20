@@ -25,7 +25,7 @@ public class Update {//extends AsyncTask<String, Void, String> {
     @Override
     protected String doInBackground(String... strings) {
     */
-    protected static String requestDb(String endpoint, String reqType){
+    protected static String requestDb(String endpoint, String reqType, boolean sendingArgs, String arg){
         URL url;
         HttpURLConnection httpsConnection = null;
         String port = "10260";
@@ -44,7 +44,7 @@ public class Update {//extends AsyncTask<String, Void, String> {
             //httpsConnection.setRequestProperty("Content-length", "0");
 
             httpsConnection.setDoInput(true);
-            if (reqType == "POST"){
+            if (sendingArgs){
                 httpsConnection.setDoOutput(true);
             }
             //httpsConnection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
@@ -82,7 +82,7 @@ public class Update {//extends AsyncTask<String, Void, String> {
             //outputStream.write((data).getBytes("UTF-8"));
             byte[] out = (data).getBytes(StandardCharsets.UTF_8);
 
-            if (reqType == "POST"){
+            if (sendingArgs){
                 httpsConnection.setFixedLengthStreamingMode(out.length);
             }
             
@@ -92,7 +92,8 @@ public class Update {//extends AsyncTask<String, Void, String> {
 
             //Response code is OK here
 
-            if (reqType == "POST"){
+            if (sendingArgs){
+                //After this line, getResponseCode changes from HTTP_OK to 404
                 OutputStream outputStream = httpsConnection.getOutputStream();
                 //OutputStreamWriter out = new OutputStreamWriter(outputStream);
 
@@ -113,6 +114,7 @@ public class Update {//extends AsyncTask<String, Void, String> {
             }
 
             InputStream is = httpsConnection.getInputStream();
+            // I think this is when the endpoint is reached
             server_response = readStream(is);
             System.out.println("Server response: " + server_response);
 
@@ -158,10 +160,13 @@ public class Update {//extends AsyncTask<String, Void, String> {
         //requestDb("api/db", "GET");
 
         System.out.println("Testing login 1.");
-        requestDb("api/login", "GET");
+        requestDb("api/login", "GET", false, "");
 
         System.out.println("Testing login 2.");
-        requestDb("api/login", "POST");
+        requestDb("api/login", "GET", true, "");
+
+        //System.out.println("Testing login 3.");
+        //requestDb("api/login", "POST", true, "");
     }
 }
 
