@@ -346,5 +346,49 @@ function validateForm(formid, errorId, func){
 	}
 	//on success
 	func();
+}
 
+function water() {
+	document.getElementById("on").disabled = true;
+	document.getElementById("off").disabled = false;
+
+	$.ajax({
+		method: "PUT",
+		url: "/api/water/",
+		data: {
+			value: $("#on").val()
+		}
+	}).done(function(data){
+		//Theres no even data for this fam..should we have it?
+		if(Object.keys(data["error"]).length == 0){ //if no error
+			//alert("done changing user using AJAX");
+		} else {
+			alert(data["error"]);
+		}
+	}).fail(function(data){
+		//alert("done ChangeUser");
+	});
+
+}
+
+function stopWater() {
+	document.getElementById("off").disabled = true;
+	document.getElementById("on").disabled = false;
+
+	$.ajax({
+		method: "PUT",
+		url: "/api/water/",
+		data: {
+			value: $("#off").val()
+		}
+	}).done(function(data){
+		//Theres no even data for this fam..should we have it?
+		if(Object.keys(data["error"]).length == 0){ //if no error
+			//alert("done changing user using AJAX");
+		} else {
+			alert(data["error"]);
+		}
+	}).fail(function(data){
+		//alert("done ChangeUser");
+	});
 }

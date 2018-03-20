@@ -107,6 +107,11 @@
 				<table id="plantsTable" class="plantsTable">
 					<!-- Filled by showPlants() -->
 				</table>
+				<table id="manualWater" class="manualWater">
+					<button id="on" value="1" onclick="water()">water that plant</button>
+					<br>
+					<button id="off" value="0" onclick="stopWater()">stop water that plant</button>
+				</table>
 				<br>
 				<input class="box" type="button" id="backToMenuButton" value="Go Back To Menu" onclick="switchView('plants', 'menu')">
 			</form>
