@@ -148,6 +148,31 @@ function changeUser(){
 	//dontforget to change global password and name if youre storing
 }
 
+function setWater(pid, state){
+	console.log("setWater(pid, state) in index.js");
+	console.log("plantID is: "+pid);
+	console.log("new state will be: "+state);
+	$.ajax({
+		method: "PUT",
+		url: "/api/setWater/",
+		data: {
+			plantID: pid,
+			state: state
+		}
+	}).done(function(data){
+		//Theres no even data for this fam..should we have it?
+		if(Object.keys(data["error"]).length == 0){ //if no error
+			//alert("done changing user using AJAX");
+		} else {
+			alert(data["error"]);
+		}
+	}).fail(function(data){
+		//alert("done ChangeUser");
+	});
+
+	//dontforget to change global password and name if youre storing
+}
+
 
 
 function switchView(from, to){
@@ -173,16 +198,25 @@ function showPlants(){
 
 
 		//update the inner html of the scores table with this html:
-		var s = "<tr><th class=\"plantsTable\"><b>Plant Type</b></th><th class=\"plantsTable\"><b>Plant Name</b></th>";
+		var s = "<tr><th class=\"plantsTable\"><b>Plant Type</b></th><th class=\"plantsTable\"><b>Plant Name</b></th><th class=\"plantsTable\"><b>Manual Water</b></th>";
 		console.log("received response containing plants: ");
 		console.log(data)
 		for (let i = 0; i < Object.keys(data["plants"]).length; i++) {
 			s+="<tr><td class=\"plantsTable\">";
 			curr_row = data["plants"][i];
 			s+=curr_row["plantType"];
+
 			s+="</td><td class=\"plantsTable\">";
 			s+=curr_row["plantName"];
+
+			s+="</td><td class=\"plantsTable\">";
+			s+="<input class=\"box\" type=\"button\" id=\"toggleWaterButtonOn"+curr_row["plantID"]+"\" value=\"Water ON\" onclick=\"setWater("+curr_row["plantID"]+", 1)\">"
+			s+="<input class=\"box\" type=\"button\" id=\"toggleWaterButtonOff"+curr_row["plantID"]+"\" value=\"Water OFF\" onclick=\"setWater("+curr_row["plantID"]+", 0)\">"
+
 			s+="</td></tr>";
+
+			// <input class="box" type="button" id="toggleWaterButtonOff" value="Water ON" onclick="setWater(1, 1)">
+			// <input class="box" type="button" id="toggleWaterButtonOn" value="Water OFF" onclick="setWater(1, 0)">
 		}
 		document.getElementById("plantsTable").innerHTML = s;
 		//switchView('showScoresButton', 'hideScoresButton');
@@ -243,6 +277,15 @@ function getScores(){
 		}
 		document.getElementById("scores").innerHTML = s;
 		//switchView('showScoresButton', 'hideScoresButton');
+	});
+}
+
+function getState(){
+	$.ajax({
+		method: "GET",
+		url: "/api/getState/?id=1"
+	}).done(function(data){
+
 	});
 }
 
@@ -346,49 +389,5 @@ function validateForm(formid, errorId, func){
 	}
 	//on success
 	func();
-}
 
-function water() {
-	document.getElementById("on").disabled = true;
-	document.getElementById("off").disabled = false;
-
-	$.ajax({
-		method: "PUT",
-		url: "/api/water/",
-		data: {
-			value: $("#on").val()
-		}
-	}).done(function(data){
-		//Theres no even data for this fam..should we have it?
-		if(Object.keys(data["error"]).length == 0){ //if no error
-			//alert("done changing user using AJAX");
-		} else {
-			alert(data["error"]);
-		}
-	}).fail(function(data){
-		//alert("done ChangeUser");
-	});
-
-}
-
-function stopWater() {
-	document.getElementById("off").disabled = true;
-	document.getElementById("on").disabled = false;
-
-	$.ajax({
-		method: "PUT",
-		url: "/api/water/",
-		data: {
-			value: $("#off").val()
-		}
-	}).done(function(data){
-		//Theres no even data for this fam..should we have it?
-		if(Object.keys(data["error"]).length == 0){ //if no error
-			//alert("done changing user using AJAX");
-		} else {
-			alert(data["error"]);
-		}
-	}).fail(function(data){
-		//alert("done ChangeUser");
-	});
 }
