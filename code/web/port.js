@@ -1,1 +1,1 @@
-global.port = "your port as INT";
+global.port = "10260";

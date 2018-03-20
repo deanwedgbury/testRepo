@@ -30,7 +30,8 @@ public class Update {//extends AsyncTask<String, Void, String> {
     protected static String requestDb(String endpoint, String reqType){
         URL url;
         HttpURLConnection httpsConnection = null;
-        String websitePath = "http://cslinux.utm.utoronto.ca:10511/";
+        String port = "10260";
+        String websitePath = "http://cslinux.utm.utoronto.ca:" + port + "/";
         //String query = "select * from appuser;";
         //String queryParams = "stuff";
 
@@ -45,11 +46,14 @@ public class Update {//extends AsyncTask<String, Void, String> {
             //httpsConnection.setRequestProperty("Content-length", "0");
 
             httpsConnection.setDoInput(true);
-            httpsConnection.setDoOutput(true); //comment this for get
-            //httpsConnection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
-            httpsConnection.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
-            httpsConnection.setRequestProperty("Accept", "application/json");
-
+            if (reqType == "POST"){
+                httpsConnection.setDoOutput(true);
+            }
+            httpsConnection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
+            //httpsConnection.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
+            //httpsConnection.setRequestProperty("Accept", "application/json");
+            httpsConnection.setRequestProperty("User-Agent","Mozilla/5.0 ( compatible ) ");
+            httpsConnection.setRequestProperty("Accept","*/*");
 
 
             //################ Constructing Output ###################
@@ -92,10 +96,6 @@ public class Update {//extends AsyncTask<String, Void, String> {
 
             if (reqType == "POST"){
                 OutputStream outputStream = httpsConnection.getOutputStream();
-
-
-                
-
                 //OutputStreamWriter out = new OutputStreamWriter(outputStream);
 
                 outputStream.write(out);
@@ -105,16 +105,23 @@ public class Update {//extends AsyncTask<String, Void, String> {
                 System.out.println("Sending Data.");
             }
 
+            //System.out.println(httpsConnection);
+
             // ##################### Response ###############################
 
+            //InputStream is = httpsConnection.getInputStream();
+
             int responseCode = httpsConnection.getResponseCode();
-            if (responseCode == HttpURLConnection.HTTP_OK) {
-                server_response = readStream(httpsConnection.getInputStream());
-                System.out.println("Server response: " + server_response);
-            } else {
-                 System.out.println("Response Code:" + responseCode);
-                 System.out.println(httpsConnection.getErrorStream());
+            if (responseCode != HttpURLConnection.HTTP_OK) {
+                System.out.println("Response Code:" + responseCode);
+                //System.out.println(httpsConnection.getErrorStream());
+                return null;
             }
+
+            InputStream is = httpsConnection.getInputStream();
+            server_response = readStream(is);
+            System.out.println("Server response: " + server_response);
+
             
 
         } catch (MalformedURLException e) {
@@ -152,9 +159,16 @@ public class Update {//extends AsyncTask<String, Void, String> {
     }
 
     public static void main(String[] args){
-        System.out.println("Testing getScores.");
-        requestDb("api/getScores", "GET");
-        System.out.println("Testing login.");
+        //System.out.println("Testing getScores.");
+        //requestDb("api/getScores", "GET");
+
+        //System.out.println("Testing printDB.");
+        //requestDb("api/db", "GET");
+
+        System.out.println("Testing login 1.");
+        requestDb("api/login", "GET");
+
+        System.out.println("Testing login 2.");
         requestDb("api/login", "POST");
     }
 }
