@@ -1,0 +1,96 @@
+/* @font-face {
+  font-family: Montserrat-Regular;
+  src: url("./fonts/Montserrat-Regular.ttf");
+} */
+
+/* style parts of the legend, the controls and the elements in the stage appropriately */
+	td.mytd {
+		border-style: solid;
+		border-width: 1px;
+	}
+
+	body{
+		background-color: #94cc96;
+		font-family: 'Lato';
+	}
+
+	table.game {
+		background-color: white;
+	}
+
+	h3 {
+		font: Arial;
+		color: gray;
+		font-size: 300%;
+	}
+
+
+	h1 {
+		font: Comic Sans MS;
+		color: darkgray;
+		font-size: 200%;
+	}
+
+	p{
+		font: Comic Sans MS;
+		color:gray;
+	}
+
+/* buttons */
+
+	.box {
+		background-color: #a3cca4;
+		border-color:none;
+		font-weight:bold;
+		color:#2a3f60;
+		font: Comic Sans MS;
+		-webkit-transition-duration: 0.4s;
+		transition-duration:0.4s;
+		border-radius: 8px;
+		cursor: pointer;
+		padding: 10px 20px;
+		/* padding-top: 4px;
+		padding-bottom: 4px; */
+	}
+
+	.box:hover {
+		background-color:ghostwhite;
+		border-color:ghostwhite;
+		font:bold;
+	}
+
+	/* .button:active {
+		background-color: #3e8e41;
+		box-shadow: 0 5px #666;
+		transform: translateY(4px);
+	} */
+
+/* Input Text Entry Boxes */
+
+	input {
+		margin: 4px 2px;
+	}
+
+/* My Plants Table */
+
+	table.plantsTable {
+		border-collapse: collapse;
+		width: 100%;
+		font-family: 'Armata';
+	}
+
+	th.plantsTable {
+		height: 50px;
+	}
+
+	td.plantsTable {
+		border-style: solid;
+		border-width: 1px;
+		height: 40px;
+		padding-left: 16px;
+		background-color: #a1dda3;
+	}
+
+	tr:hover td {
+		background:#8cff9d
+	}

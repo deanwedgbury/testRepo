@@ -2,97 +2,126 @@
 // February 2017
 
 #include "DHT.h"
-#include <FastIO.h>
-#include <I2CIO.h>
-#include <LCD.h>
-#include <LiquidCrystal.h>
-#include <LiquidCrystal_I2C.h>
-#include <LiquidCrystal_SR.h>
-#include <LiquidCrystal_SR2W.h>
-#include <LiquidCrystal_SR3W.h>
 #include <Wire.h>
 
+//communcation with pi
+#define SLAVE_ADDRESS 0x04
+int received = -1;
+int dataToSend;
+
+//DHT sensor stuff
 #define DHTPIN 12     //sensor pin
 #define DHTTYPE DHT11   // DHT 11 
-
 DHT dht(DHTPIN, DHTTYPE);
+float humidity;
+float temp;
 
-LiquidCrystal_I2C lcd(0x27, 2, 1, 0, 4, 5, 6, 7, 3, POSITIVE);
-
-int val = 0; //value for storing moisture value 
+//moisture
 int soilPin = A0;//Declare a variable for the soil moisture sensor 
 int soilPower = 7;//Variable for Soil moisture Power
+int moisture; //0-92 is wet, 93-150 is humid, 150-250 is dry, 250-255 is in air
 
-int pumpPin = 8; //when HIGH, pump activates
+//pump
+int motorState = 0;
+int motorControllerPin = 7;
+int motorPin = 6;
+
 
 void setup() {
-  Serial.begin(9600); 
-  dht.begin();
-  lcd.begin(16,2);
+  Serial.begin(9600); // start serial for output
 
+  //rpi
+  pinMode(13, OUTPUT);
+  // initialize i2c as slave
+  Wire.begin(SLAVE_ADDRESS);
+  
+  // define callbacks for i2c communication
+  Wire.onReceive(receiveData);
+  Wire.onRequest(sendData);
+  
+  Serial.println("Ready!");
+
+
+  //DHT stuff
+  dht.begin();
+
+  //moisture
   pinMode(soilPin, INPUT);
-  pinMode(pumpPin,OUTPUT);
 }
 
 void loop() {
+  digitalWrite(motorControllerPin, HIGH);
   
-  //delay(1000); 
-  
+  delay(1000);
+
+  //DHT
   // Reading temperature or humidity takes about 90 milliseconds!
   // Sensor readings may also be up to 2 seconds 'old' (its a very slow sensor)
-  float h = dht.readHumidity(); // Read humidity
-  float t = dht.readTemperature(); // Read temperature as Celsius
-  float f = dht.readTemperature(true); // Read temperature as Fahrenheit
+  humidity = dht.readHumidity(); // Read humidity
+  temp = dht.readTemperature(); // Read temperature as Celsius
   
   // Check if any reads failed and exit early (to try again).
-  if (isnan(h) || isnan(t)) {
+  if (isnan(humidity) || isnan(temp)) {
     Serial.println("Failed to read from DHT sensor!");
-    return;
   }
 
-  // Compute heat index
-  // Must send in temp in Fahrenheit!
-  float hi = dht.computeHeatIndex(f, h);
+  //moisture
+  moisture = map(analogRead(A0), 0, 1023, 0, 255); //turn input from 0-1023 to 0-255
+  if (isnan(moisture)) {
+    Serial.println("Failed to read from moisture sensor!");
+  }
 
-  Serial.print("x");
-  Serial.print((int)t);
-  Serial.print("y");
+  Serial.print("Temp: ");
+  Serial.print((int)temp);
+  Serial.print(" Hum: ");
+  Serial.print((int)humidity);
+  Serial.print(" Moisture: ");
+  Serial.print(moisture);
   Serial.print("\n");
   
-  lcd.setCursor(0,0);
-  lcd.print("Tem:");
-  lcd.print((int)t);
-  lcd.print((char)223); //degree symbol
-  lcd.print("C ");
+}
+
+// callback for received data
+void receiveData(int byteCount){
+
+  while(Wire.available()) {
+    received = Wire.read();
+    Serial.print("data received: ");
+    Serial.println(received);
+
+    switch (received){
+      case 1: //temp
+        dataToSend = temp;
+        break;
+        
+      case 2: //humidity
+        dataToSend = humidity;
+        break;
+
+      case 3: //moisture
+        dataToSend = moisture;
+        break;
+
+      case 9: //toggle led
+      
+        if (motorState == 0){
+          digitalWrite(13, HIGH); // set the LED on
+          digitalWrite(motorPin, HIGH);
+          motorState = 1;
+        } else{
+          digitalWrite(13, LOW); // set the LED off
+          digitalWrite(motorPin, LOW);
+          motorState = 0;
+        }
+        dataToSend = motorState;
+        break;
+        
+    } //end switch
   
-  lcd.print("Hum:");
-  lcd.print((int)h);
-  lcd.print("%");
+  }
+}
 
-  int SensorValue = analogRead(A0); //take a sample
-  Serial.print(SensorValue); Serial.print(" - ");
-
-  lcd.setCursor(0,1);
-  //lcd.print(SensorValue);
-  if(SensorValue >= 1000) {
-   Serial.println("Sensor is not in the Soil or DISCONNECTED");
-   lcd.print("Sensor in AIR   ");
-   digitalWrite(pumpPin, LOW);
-  }
-  if(SensorValue < 1000 && SensorValue >= 600) { 
-   Serial.println("Soil is DRY");
-   lcd.print("Soil is DRY    ");
-   digitalWrite(pumpPin, HIGH);
-  }
-  if(SensorValue < 600 && SensorValue >= 370) {
-   Serial.println("Soil is HUMID"); 
-   lcd.print("Soil is HUMID     ");
-   digitalWrite(pumpPin, LOW);
-  }
-  if(SensorValue < 370) {
-   Serial.println("Sensor in WATER");
-   lcd.print("Sensor in WATER  ");
-   digitalWrite(pumpPin, LOW);
-  }
-    
-}//end loop
+// callback for sending data
+void sendData(){
+  Wire.write(dataToSend);
+}
