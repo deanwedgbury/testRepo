@@ -102,6 +102,18 @@ void receiveData(int byteCount){
         dataToSend = moisture;
         break;
 
+      case 7: //turn on motor
+        digitalWrite(motorPin, HIGH);
+        motorState = 1; 
+        dataToSend = motorState;
+        break;
+    
+      case 8: //turn off motor
+        digitalWrite(motorPin, LOW);
+        motorState = 0;
+        dataToSend = motorState;
+        break;
+
       case 9: //toggle led
       
         if (motorState == 0){

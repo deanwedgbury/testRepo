@@ -2,16 +2,20 @@
 
 from subprocess import call
 
-
-
 import time
-
 import smbus
 
-bus = smbus.SMBus(1)
+import requests
+import json
 
-# This is the address we setup in the Arduino Program
-address = 0x04
+
+bus = smbus.SMBus(1)
+address = 0x04 # address of the arduino pin 
+
+port = 10511
+plantID = 1
+interval = 1
+
 
 def writeNumber(value):
     bus.write_byte(address, value)
@@ -21,48 +25,48 @@ def readNumber():
     number = bus.read_byte(address)
     return number
 
-'''
-while True:
-    var = input("Enter 1 for temp(in celsius), 2 for humdity(0-100%), 3 for moisture(0-255) or 9 to toggle the motor: ")
-    if not var:
-        continue
-
-    writeNumber(var)
+# 1 is temp
+# 2 is humidity
+# 3 is moisture
+def readData(type):
+    writeNumber(type)
     # sleep one second
     time.sleep(1)
-
-    number = readNumber() # this is the value the arduino responds with
-    print "Arduino: ", number
-    print
-'''
-
-def readMoisture():
+    response = readNumber() # this is the value the arduino responds with
     
-    # Test Get only moisture
-    writeNumber(3)
-    # sleep one second
-    time.sleep(1)
-    number = readNumber() # this is the value the arduino responds with
-    
-    #number = 1
-    return number
+    return response
 
 if __name__ == '__main__':
-    interval = 1#10
-    i=0
     while True:
-        time.sleep(interval)
         
         # Get values from arduino
-        moisture=readMoisture()
+        temp = readData(1)
+    	humidity = readData(2)
+    	moisture = readData(3)
 
-        # Update the database
-        # Read from database and send 9 to arduino if water=True
+
+        
         #call(["ls", "-l"])
-        call(["java", "Update"])
+        #call(["java", "Update"])
+        
+        # Update the database
+        #link = "http://cslinux.utm.utoronto.ca:" + port + "/api/updateHistory?id=" + plantID +"&temp=" + temp + "&humidity=" + humidity + "&moisture=" + moisture
+		#send_data = urllib2.urlopen(link).read()
+		link_for_push = "http://cslinux.utm.utoronto.ca:" + str(port) + "/api/updateHistory"
+		push = requests.put(url=link_for_push, data={"id":plantID, "temp":temp, "humidity":humidity, "moisture":moisture})
 
-        i=i+1
+		# Read from database and turn on the pump if watering is on
+		#json_water = urllib2.urlopen("http://cslinux.utm.utoronto.ca:10511/api/getState?id=1").read()
 
+		link_for_water = "http://cslinux.utm.utoronto.ca:" + str(port) + "/api/getState?id=" + str(plantID)
+		json_water = requests.get(link_for_water)
+		water = json.loads(json_water)['state'][0]		
+		if (water):
+			writeNumber(7)
+		else:
+			writeNumber(8)
+
+		time.sleep(interval)
 
     
 
