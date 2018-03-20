@@ -111,6 +111,13 @@ public class Updator{
 	  		System.out.println("Executing query...");
 	        sqlText = "SELECT * FROM observed_data;";
 	        rs = sql.executeQuery(sqlText);
+
+	        if (rs != null){
+				while (rs.next()){
+					System.out.println(rs.getInt("iteration") + " | " + rs.getInt(2) + "\n");
+      			}
+    		}
+
 	        System.out.println("Done executing query.");
 	    }
 	    catch (SQLException e) {

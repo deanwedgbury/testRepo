@@ -9,9 +9,19 @@ i=0
 while true
 do
 	sleep 10
+	
+	## Get values from arduino
+
 	#moisture = ser.readline()
 	moisture=1000
-	javac Updator.java
-	java -cp postgresql-42.1.4.jar:. Updator $moisture $i
+
+	# Update the database
+	#sqlite3 database.db < update.sql
+	
+	#javac Updator.java
+	#java -cp postgresql-42.1.4.jar:. Updator $moisture $i
+	
+
+
 	i=$[$i+1]
 done
