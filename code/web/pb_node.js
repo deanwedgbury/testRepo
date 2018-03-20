@@ -442,3 +442,23 @@ function validateInput(inputs){
 	//on success
 	return true;
 }
+
+app.put('/api/water/', function (req, res) {
+	console.log("Entered water AJAX");
+	var value = parseInt(req.body.value);
+	console.log(value);
+
+
+	// if (!validateInput([value])){
+	// 	console.log("Invalid Input");
+	// 	//result['errors'] = "Invalid Input";
+	// } else {
+
+		let sql = 'UPDATE manualWater SET doWater = $2 WHERE plantID = $1;';
+		db.all(sql, [1, value], (err, rows) => {
+			if (err){
+				throw err;
+			}
+		});
+//	}
+});
