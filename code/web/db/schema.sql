@@ -57,3 +57,5 @@ INSERT INTO plant(plantID, plantType, plantName) VALUES (1, "Succulent", "Hedgeh
 INSERT INTO plant(plantID, plantType, plantName) VALUES (2, "Succulent", "Snake Plant");
 INSERT INTO plant(plantID, plantType, plantName) VALUES (3, "Rose", "Red Rose");
 INSERT INTO plant(plantID, plantType, plantName) VALUES (4, "Fern", "Ostrich Fern");
+
+INSERT INTO manualWater(plantID, doWater) VALUES (1, 0);
