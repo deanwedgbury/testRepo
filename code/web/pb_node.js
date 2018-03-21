@@ -183,6 +183,28 @@ app.put('/api/updateHistory', function (req, res){
 
 });
 
+app.get('/api/getHistory', function (req, res){
+
+	console.log("in getHistory in pb_node.js backend");
+
+	var result = {};
+
+	let sql = 'SELECT * FROM history';
+	db.all(sql, [], (err, rows) => {
+		result["history"] = [];
+		if (err){
+			throw err;
+		}
+
+		rows.forEach((row) => {
+			console.log(row);
+			result["history"].push(row);
+		});
+		//console.log(result);
+		res.json(result);
+	});
+});
+
 // add a new user
 // you still have to login after creating accoutn tho
 app.put('/api/newuser/', function (req, res) {
