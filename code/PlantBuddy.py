@@ -7,14 +7,17 @@ import smbus
 
 import requests
 import json
+#import codecs
 
 
 bus = smbus.SMBus(1)
 address = 0x04 # address of the arduino pin 
 
-port = 10511
+port = 10269
 plantID = 1
 interval = 1
+
+#reader = codecs.getreader("utf-8")
 
 
 def writeNumber(value):
@@ -37,36 +40,66 @@ def readData(type):
     return response
 
 if __name__ == '__main__':
+    #a = readData(9)
+    print("Welcome to PlantBuddy!")
     while True:
         
         # Get values from arduino
-        temp = readData(1)
-    	humidity = readData(2)
-    	moisture = readData(3)
-
+	try:
+        	temp = readData(1)
+        	humidity = readData(2)
+        	moisture = readData(3)
+	except OSError:
+		print("OSError caught!")
+		continue
+	except IOError:
+		print("IOError caught!")
+		continue
+	except BaseException as error:
+		print("An exception occured: {}".format(error))
 
         
         #call(["ls", "-l"])
         #call(["java", "Update"])
         
-        # Update the database
-        #link = "http://cslinux.utm.utoronto.ca:" + port + "/api/updateHistory?id=" + plantID +"&temp=" + temp + "&humidity=" + humidity + "&moisture=" + moisture
-		#send_data = urllib2.urlopen(link).read()
-		link_for_push = "http://cslinux.utm.utoronto.ca:" + str(port) + "/api/updateHistory"
-		push = requests.put(url=link_for_push, data={"id":plantID, "temp":temp, "humidity":humidity, "moisture":moisture})
+	try:
+	        # Update the database
+        	#link = "http://cslinux.utm.utoronto.ca:" + port + "/api/updateHistory?id=" + plantID +"&temp=" + temp + "&humidity=" + humidity + "&moisture=" + moisture
+        	#send_data = urllib2.urlopen(link).read()
+        	#link_for_push = "http://cslinux.utm.utoronto.ca:" + str(port) + "/api/updateHistory"
+        	#push = requests.put(url=link_for_push, data={"id":plantID, "temp":temp, "humidity":humidity, "moisture":moisture})
 
-		# Read from database and turn on the pump if watering is on
-		#json_water = urllib2.urlopen("http://cslinux.utm.utoronto.ca:10511/api/getState?id=1").read()
+        	# Read from database and turn on the pump if watering is on
+        	#json_water = urllib2.urlopen("http://cslinux.utm.utoronto.ca:10511/api/getState?id=1").read()
 
-		link_for_water = "http://cslinux.utm.utoronto.ca:" + str(port) + "/api/getState?id=" + str(plantID)
-		json_water = requests.get(link_for_water)
-		water = json.loads(json_water)['state'][0]		
-		if (water):
-			writeNumber(7)
-		else:
-			writeNumber(8)
+        	link_for_water = "http://cslinux.utm.utoronto.ca:" + str(port) + "/api/getState?id=" + str(plantID)
+        	json_water = requests.get(link_for_water)
+        
+	except BaseException as error:
+		print("An exception occured: {}".format(error))
+	
 
-		time.sleep(interval)
+	#water = json.load(json_water)['state'][0]
+        water = json_water.json()['state'][0]
+        print(water)
+	waterCommand = 0
+        if (water):
+            waterCommand = 7
+        else:
+            waterCommand = 8
+
+	try:
+		writeNumber(waterCommand)
+	except OSError:
+		print("Caught OSError!")
+		continue
+	except IOError:
+		print("Caught IOError!")
+		continue
+	except BaseException as error:
+		print("An exception occured: {}".format(error))
+
+        time.sleep(interval)
 
     
 
