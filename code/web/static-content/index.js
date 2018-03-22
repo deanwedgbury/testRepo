@@ -183,14 +183,14 @@ function switchView(from, to){
 	$("#" + to).show();
 }
 
-function pullHistory(){
+function pullHistory(type){
 	console.log("AJAX Pull History");
 	$.ajax({
 		method: "GET",
 		url: "/api/getHistory/",
 	}).done(function(data){
 	console.log(data);
-	drawHistory(data['history']);
+	drawHistory(data['history'], type);
 	});
 	
 }

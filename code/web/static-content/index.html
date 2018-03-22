@@ -38,11 +38,23 @@
 
 				<form id="statistics">
 					<h1>Plant Statistics</h1>
-					<canvas id="myChart" width="400" height="400"></canvas>
-					<script> pullHistory(); </script>
+                    <div id='d1' style="position:absolute; top:300px; left:1300px; z-index:1">  
+                        <canvas id="myChart" width="400" height="400"></canvas>
+                    </div>
+                    <div id='d2' style="position:absolute; top:300px; left:800px; z-index:2">  
+                        <canvas id="myChart1" width="400" height="400"></canvas>
+                    </div>
+                    <div id='d3' style="position:absolute; top:300px; left:300px; z-index:3">  
+                        <canvas id="myChart2" width="400" height="400"></canvas>
+                    </div>
+					<script> pullHistory('moisture'); </script>
+                    <script> pullHistory('temp'); </script>
+                    <script> pullHistory('humidity'); </script>
 					<br>
+                    <div id='b1' style="position:absolute; top:800px; left: 875px; z-index:4">  
 					<input type="button" class="box" id="scoreBackToMenuButton" value="Go Back To Menu" onclick="switchView('statistics', 'menu');"><br>
-				</form>
+                    </div>
+                </form>
 
 
 

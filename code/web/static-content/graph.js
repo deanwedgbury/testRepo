@@ -1,41 +1,69 @@
-function drawHistory(history){
+function drawHistory(history, type){
 	console.log("history in drawHistory(his..)"+history);
 	console.log(history);
-	console.log(history[0]["temp"]);
-	var ctx = document.getElementById("myChart").getContext('2d');
+	console.log(history[0][type]);
+    var temps = [];
+    var dates = [];
+    var labels = [];
+    var colour;
+    for (var i = 0; i <= history.length; i++){
+        if (history[i] != null){
+            temps.push(history[i][type]);
+            time = Date(history[i]['recordDate'])
+            dates.push(time.substring(0,25));
+        } 
+    }
+    
+    if (type == "moisture"){
+        var ctx = document.getElementById("myChart").getContext('2d');
+        colour = 'rgba(255, 99, 132, 0.5)';
+    } else if (type == "temp"){
+        var ctx = document.getElementById("myChart1").getContext('2d');
+        colour = 'rgba(75, 192, 192, 0.5)';
+    }
+    else if (type == "humidity"){
+        var ctx = document.getElementById("myChart2").getContext('2d');
+        colour = 'rgba(153, 102, 255, 0.5)';
+    }
+    
 	var myChart = new Chart(ctx, {
-		type: 'bar',
+		type: 'line',
 		data: {
-			labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+			labels: dates,
 			datasets: [{
-			    label: '# of Votes',
-			    data: [history[0]["temp"]],
-			    backgroundColor: [
-			        'rgba(255, 99, 132, 0.2)',
-			        'rgba(54, 162, 235, 0.2)',
-			        'rgba(255, 206, 86, 0.2)',
-			        'rgba(75, 192, 192, 0.2)',
-			        'rgba(153, 102, 255, 0.2)',
-			        'rgba(255, 159, 64, 0.2)'
-			    ],
-			    borderColor: [
-			        'rgba(255,99,132,1)',
-			        'rgba(54, 162, 235, 1)',
-			        'rgba(255, 206, 86, 1)',
-			        'rgba(75, 192, 192, 1)',
-			        'rgba(153, 102, 255, 1)',
-			        'rgba(255, 159, 64, 1)'
-			    ],
+			    label: type,
+			    data: temps,
+			    backgroundColor: colour,
 			    borderWidth: 1
 			}]
 		},
 		options: {
+            
+            title: {
+                display: true,
+                text: type
+            },
+            
+            legend: {
+                display: false
+            },
 			scales: {
 			    yAxes: [{
+
+                    
 			        ticks: {
 			            beginAtZero:true
-			        }
-			    }]
+			        },
+			    }],
+			    xAxes: [{
+			        ticks: {
+			            autoskip: true
+			        },
+
+			    }],
+                
+              
+                
 			}
 		}
 	});
