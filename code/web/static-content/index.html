@@ -6,6 +6,8 @@
 		<title>Plant Buddy</title>
 		<script language="javascript" src="jquery-3.3.1.min.js" > </script>
 		<script language="javascript" src="index.js" > </script>
+		<script type="text/javascript" src="graph.js"></script>
+		<script language="javascript" src =https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js> </script>
 		<link rel="stylesheet" type="text/css" href="style.css" > </script>
 		<link href="https://fonts.googleapis.com/css?family=Armata" rel="stylesheet" />
 		<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
@@ -20,6 +22,7 @@
 				$("#accountPage").hide();
 				$("#menu").hide();
 				$("#statistics").hide();
+				
 			});
 
 		</script>
@@ -35,9 +38,10 @@
 
 				<form id="statistics">
 					<h1>Plant Statistics</h1>
-					<table id="scores"> </table>
+					<canvas id="myChart" width="400" height="400"></canvas>
+					<script> pullHistory(); </script>
 					<br>
-					<input type="button" class="box" id="scoreBackToMenuButton" value="Go Back To Menu" onclick="switchView('statistics', 'menu')"><br>
+					<input type="button" class="box" id="scoreBackToMenuButton" value="Go Back To Menu" onclick="switchView('statistics', 'menu');"><br>
 				</form>
 
 

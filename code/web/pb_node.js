@@ -163,7 +163,7 @@ app.put('/api/updateHistory', function (req, res){
 
 	var pid = req.body.id;
 	var d = new Date();
-	var ds = d.toString();
+	var ds = d;
 	var moisture = req.body.moisture;
 	var temp = req.body.temp;
 	var humidity = req.body.humidity;
@@ -474,6 +474,27 @@ app.get('/api/getState/', function (req, res) {
 			result["state"].push(row["doWater"]);
 		});
 		console.log(result);
+		res.json(result);
+	});
+});
+
+//get history
+app.get('/api/getHistory/', function (req, res) {
+	var result = {};
+	console.log("Entered get history AJAX");
+
+	let sql = 'SELECT * FROM history ORDER BY recordDate ASC';
+	db.all(sql, [], (err, rows) => {
+		result["history"] = [];
+		if (err){
+			throw err;
+		}
+
+		rows.forEach((row) => {
+			console.log(row);
+			result["history"].push(row);
+		});
+		//console.log(result);
 		res.json(result);
 	});
 });

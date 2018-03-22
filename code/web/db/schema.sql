@@ -24,7 +24,7 @@ CREATE TABLE plant (
 
 CREATE TABLE history (
 	plantID INTEGER,
-	recordDate DATE,
+	recordDate BIGINT,
 	moisture INT,
 	humidity INT,
 	temp INT,
@@ -59,3 +59,10 @@ INSERT INTO plant(plantID, plantType, plantName) VALUES (3, "Rose", "Red Rose");
 INSERT INTO plant(plantID, plantType, plantName) VALUES (4, "Fern", "Ostrich Fern");
 
 INSERT INTO manualWater(plantID, doWater) VALUES (1, 0);
+INSERT INTO manualWater(plantID, doWater) VALUES (2, 0);
+INSERT INTO manualWater(plantID, doWater) VALUES (3, 0);
+INSERT INTO manualWater(plantID, doWater) VALUES (4, 0);
+
+INSERT INTO history VALUES (1, 200, 3, 4, 10);
+INSERT INTO history VALUES (1, 204, 7, 4, 10);
+INSERT INTO history VALUES (1, 210, 14, 4, 10);

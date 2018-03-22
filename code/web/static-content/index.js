@@ -1,3 +1,5 @@
+//imports
+
 //my code
 var game_step;
 var game_redraw;
@@ -8,7 +10,8 @@ var userId;
 // Store password as well? and check it on the backend?
 var password;
 var name;
-
+var history; 
+//so this is global now?
 
 stage=null;
 interval=null;
@@ -179,6 +182,19 @@ function switchView(from, to){
 	$("#" + from).hide();
 	$("#" + to).show();
 }
+
+function pullHistory(){
+	console.log("AJAX Pull History");
+	$.ajax({
+		method: "GET",
+		url: "/api/getHistory/",
+	}).done(function(data){
+	console.log(data);
+	drawHistory(data['history']);
+	});
+	
+}
+
 
 
 function showPlants(){
