@@ -13,7 +13,7 @@ import json
 bus = smbus.SMBus(1)
 address = 0x04 # address of the arduino pin 
 
-port = 10269
+port = 10269  
 plantID = 1
 interval = 1
 
