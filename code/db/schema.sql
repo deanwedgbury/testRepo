@@ -5,23 +5,27 @@ DROP TABLE IF EXISTS optimal;
 DROP TABLE IF EXISTS manualWater;
 DROP TABLE IF EXISTS plant;
 
+/* Table of all website users */
 CREATE TABLE user (
 	username VARCHAR(50) PRIMARY KEY,
 	password VARCHAR(50),
 	name VARCHAR(50)
 );
 
+/* Table of all plants a user owns */
 CREATE TABLE owner (
 	plantID INTEGER PRIMARY KEY AUTOINCREMENT REFERENCES plant(plantID),
 	username VARCHAR(50) REFERENCES user(username)
 );
 
+/* Table of all plant types */
 CREATE TABLE plant (
 	plantID INTEGER PRIMARY KEY,
 	plantType VARCHAR(50),
 	plantName VARCHAR(50)
 );
 
+/* Table of the history of each plant */
 CREATE TABLE history (
 	plantID INTEGER,
 	recordDate DATE,
@@ -31,6 +35,7 @@ CREATE TABLE history (
 	PRIMARY KEY(plantID, recordDate)
 );
 
+/* Table of all the target values of a plants levels */
 CREATE TABLE optimal (
 	plantType VARCHAR(50) PRIMARY KEY,
 	optMoisture INT,
@@ -39,6 +44,7 @@ CREATE TABLE optimal (
 
 );
 
+/* Table that signals manual watering */
 CREATE TABLE manualWater (
 	plantID INTEGER PRIMARY KEY AUTOINCREMENT REFERENCES plant(plantID),
 	doWater BOOLEAN
