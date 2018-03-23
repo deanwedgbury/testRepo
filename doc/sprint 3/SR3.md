@@ -19,6 +19,7 @@
 ### The following User Stories are completed:
 - [WEB] View Plant Data History
 - [WEB] Store and Retrieve Relevant Plant Data
+- [WEB] Manual Watering on the Web
 
 ### The following User Story was split into tasks:
 - [EXTRA] Continue Watering When Offline
