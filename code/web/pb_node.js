@@ -32,7 +32,6 @@ app.listen(port, function () {
 
 // http://www.sqlitetutorial.net/sqlite-nodejs/query/
 
-
 // get user data
 app.get('/api/login/', function (req, res) {
 	console.log("Entered login AJAX");
