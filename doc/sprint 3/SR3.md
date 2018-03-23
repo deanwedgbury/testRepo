@@ -29,10 +29,10 @@
 Keeping good communicaiton allows us to make rapid changes that might work better for our project without worrying about it breaking other people's work.
 
 ## Practices to Add
-Setting up expectations for timelines of when things will be done as opposed to just working on it until its done.
+Setting up expectations for timelines of when things will be done as opposed to just working on it until its done. This will give us an opportunity to better evaluate and critique each others work and provide constructive criticism.
 
 ## Practices to Purge
-Making last minute changes without consulting the entire team.
+Making last minute changes without consulting the entire team resulted in conflicts of interests and additional user stories being added making overall sprint velocity go down. We can fix this problem by getting together as a group and expressing our expectations for the project once more.
 
 ## Best/Worst Experience
 - Seeing the graph update automatically and making it visually appealing.
