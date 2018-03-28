@@ -205,6 +205,28 @@ app.get('/api/getHistory', function (req, res){
 	});
 });
 
+app.put('/api/getOptMoisture/', function (req, res) {
+
+	console.log("in getOpt in pb_node.js backend");
+	var pid=req.body.plantID;
+	var result = {};
+
+
+	let sql = 'SELECT optMoisture FROM optimal, plant WHERE plant.plantType=optimal.plantType AND plantplantID=$1;';
+	db.run(sql, [pid], (err, rows) => {
+		if (err) {
+			console.log(err.message);
+			throw err;
+		} else {
+			rows.forEach((row) => {
+				result["optMoisture"].push(row);
+			});
+			res.json(result);
+		}
+	});
+
+});
+
 // add a new user
 // you still have to login after creating accoutn tho
 app.put('/api/newuser/', function (req, res) {
