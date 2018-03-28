@@ -212,8 +212,8 @@ app.get('/api/getThreshold/', function (req, res) {
 	var result = {};
 
 
-	//let sql = 'SELECT optMoisture FROM optimal, plant WHERE plant.plantType=optimal.plantType AND plantplantID=$1;';
-	var sql = 'SELECT optMoisture FROM optimal JOIN plant ON plant.plantType = optimal.plantType WHERE plantplantID=$1;';
+	//let sql = 'SELECT optMoisture FROM optimal, plant WHERE plant.plantType=optimal.plantType AND plantID=$1;';
+	var sql = 'SELECT optMoisture FROM optimal JOIN plant ON plant.plantType = optimal.plantType WHERE plantID=$1;';
 
 	db.run(sql, [pid], (err, rows) => {
 		if (err) {
