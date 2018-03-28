@@ -210,13 +210,13 @@ app.get('/api/getThreshold/', function (req, res) {
 	console.log("in getOpt in pb_node.js backend");
 	//var pid=req.query.plantID;
 	var result = {};
-	result["optMoisture"]=[];
+	result["moisture"]=[];
 
 
 	//let sql = 'SELECT optMoisture FROM optimal, plant WHERE plant.plantType=optimal.plantType AND plantplantID=$1;';
 	var sql = 'SELECT optimal.optMoisture FROM optimal JOIN plant ON plant.plantType = optimal.plantType WHERE plant.plantID=1;';
 
-	db.run(sql, [], (err, rows) => {
+	db.all(sql, [], (err, rows) => {
 		if (err) {
 			console.log(err.message);
 			throw err;
@@ -224,7 +224,7 @@ app.get('/api/getThreshold/', function (req, res) {
 			console.log(rows);
 
 			rows.forEach((row) => {
-				result["optMoisture"].push(row);
+				result["moisture"].push(row);
 			});
 			res.json(result);
 		}
