@@ -67,4 +67,4 @@ INSERT INTO history VALUES (1, 200, 3, 4, 10);
 INSERT INTO history VALUES (1, 204, 7, 4, 10);
 INSERT INTO history VALUES (1, 210, 14, 4, 10);
 
-INSERT INTO optimal(plantType, optMoisture, optHumidity, optTemp) VALUES ("Succulent", 100, 0, 0);
+INSERT INTO optimal(plantType, optMoisture, optHumidity, optTemp) VALUES ("Succulent", 10, 0, 0);
