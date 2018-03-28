@@ -13,9 +13,10 @@ import json
 bus = smbus.SMBus(1)
 address = 0x04 # address of the arduino pin 
 
-port = 10269  
+port = 10689
 plantID = 1
 interval = 1
+threshold = 10
 
 #reader = codecs.getreader("utf-8")
 
@@ -62,7 +63,7 @@ if __name__ == '__main__':
         #call(["ls", "-l"])
         #call(["java", "Update"])
         
-        water = -1
+        water = 0
         try:
 	        # Update the database
         	#link = "http://cslinux.utm.utoronto.ca:" + port + "/api/updateHistory?id=" + plantID +"&temp=" + temp + "&humidity=" + humidity + "&moisture=" + moisture
@@ -70,12 +71,17 @@ if __name__ == '__main__':
             link_for_push = "http://cslinux.utm.utoronto.ca:" + str(port) + "/api/updateHistory"
             push = requests.put(url=link_for_push, data={"id":plantID, "temp":temp, "humidity":humidity, "moisture":moisture})
             print("pushed " + str(temp) + " " + str(humidity) + " " + str(moisture) + " to plant " + str(plantID))
-        	# Read from database and turn on the pump if watering is on
-        	#json_water = urllib2.urlopen("http://cslinux.utm.utoronto.ca:10511/api/getState?id=1").read()
 
+
+        	# Read from database and turn on the pump if watering is on
             link_for_water = "http://cslinux.utm.utoronto.ca:" + str(port) + "/api/getState?id=" + str(plantID)
             json_water = requests.get(link_for_water)
             water = json_water.json()['state'][0]
+
+            link_for_threshold = "http://cslinux.utm.utoronto.ca:" + str(port) + "/api/getThreshold?id=" + str(plantID)
+            json_threshold = requests.get(link_for_threshold)
+            threshold = json_threshold.json()['moisture'][0]
+
         
         except BaseException as error:
             print("An exception occured: {}".format(error))
@@ -83,8 +89,15 @@ if __name__ == '__main__':
 
 	#water = json.load(json_water)['state'][0]
         #water = json_water.json()['state'][0]
-        print(water)
+        
         waterCommand = 0
+
+        if (moisture < threshold):
+            print("Moisture too low!")
+            water = 1
+
+
+        print(water)
         if (water):
             waterCommand = 7
         else:
