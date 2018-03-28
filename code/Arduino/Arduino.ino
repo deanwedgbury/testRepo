@@ -13,8 +13,8 @@ int dataToSend;
 #define DHTPIN 12     //sensor pin
 #define DHTTYPE DHT11   // DHT 11 
 DHT dht(DHTPIN, DHTTYPE);
-float humidity;
-float temp;
+float humidity = 255;
+float temp = 255 ;
 
 //moisture
 int soilPin = A0;//Declare a variable for the soil moisture sensor 
@@ -30,6 +30,15 @@ int motorPin = 6;
 void setup() {
   Serial.begin(9600); // start serial for output
 
+
+
+
+  //DHT stuff
+  dht.begin();
+
+  //moisture
+  pinMode(soilPin, INPUT);
+
   //rpi
   pinMode(13, OUTPUT);
   // initialize i2c as slave
@@ -40,19 +49,10 @@ void setup() {
   Wire.onRequest(sendData);
   
   Serial.println("Ready!");
-
-
-  //DHT stuff
-  dht.begin();
-
-  //moisture
-  pinMode(soilPin, INPUT);
 }
 
 void loop() {
   digitalWrite(motorControllerPin, HIGH);
-  
-  delay(1000);
 
   //DHT
   // Reading temperature or humidity takes about 90 milliseconds!
@@ -66,7 +66,7 @@ void loop() {
   }
 
   //moisture
-  moisture = map(analogRead(A0), 0, 1023, 0, 255); //turn input from 0-1023 to 0-255
+  moisture = map(analogRead(A0), 0, 1023, 0, 100); //turn input from 0-1023 to 0-255
   if (isnan(moisture)) {
     Serial.println("Failed to read from moisture sensor!");
   }
@@ -78,6 +78,8 @@ void loop() {
   Serial.print(" Moisture: ");
   Serial.print(moisture);
   Serial.print("\n");
+
+  delay(1000);
   
 }
 
@@ -99,7 +101,7 @@ void receiveData(int byteCount){
         break;
 
       case 3: //moisture
-        dataToSend = moisture;
+        dataToSend = 100 - moisture;
         break;
 
       case 7: //turn on motor
@@ -129,11 +131,18 @@ void receiveData(int byteCount){
         break;
         
     } //end switch
+    
   
   }
 }
 
 // callback for sending data
 void sendData(){
-  Wire.write(dataToSend);
+  if (dataToSend > 200 || (temp == 0 && humidity == 0 && moisture == 0)){ //bad read
+    Serial.println("bad read");
+  } else {
+    Wire.write(dataToSend);
+    Serial.print("data sent: ");
+    Serial.println(dataToSend);
+  }
 }
