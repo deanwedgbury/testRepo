@@ -32,7 +32,6 @@ app.listen(port, function () {
 
 // http://www.sqlitetutorial.net/sqlite-nodejs/query/
 
-
 // get user data
 app.get('/api/login/', function (req, res) {
 	console.log("Entered login AJAX");
@@ -161,24 +160,25 @@ app.get('/api/getPlants2/', function (req, res) {
 
 app.put('/api/updateHistory', function (req, res){
 
-	console.log("in updateHistory in pb_node.js backend");
-	var pid = req.params.id;
-	var moisture = req.params.moisture;
-	var temp = req.params.temp;
-	var humidity = req.params.humidity;
-
+	var pid = req.body.id;
+	var d = new Date();
+	var ds = d;
+	var moisture = req.body.moisture;
+	var temp = req.body.temp;
+	var humidity = req.body.humidity;
+	console.log("updateHistory in pb_node.js backend (pid="+pid+", date="+ds+", moisture="+moisture+", humidity="+humidity+", temp="+temp+")");
 
 	var result = {};
 
 
 	let sql = 'INSERT INTO history VALUES($1, $2, $3, $4, $5);';
- 	var d = new Date();
- 	var ds = d.toString();
 	db.run(sql, [pid, ds, moisture, humidity, temp], (err, rows) => {
 		if (err) {
 			console.log(err.message);
 			throw err;
 		}
+		console.log("done updatehistory");
+		res.json(result);
 	});
 
 });
@@ -495,6 +495,27 @@ app.get('/api/getState/', function (req, res) {
 			result["state"].push(row["doWater"]);
 		});
 		console.log(result);
+		res.json(result);
+	});
+});
+
+//get history
+app.get('/api/getHistory/', function (req, res) {
+	var result = {};
+	console.log("Entered get history AJAX");
+
+	let sql = 'SELECT * FROM history ORDER BY recordDate ASC';
+	db.all(sql, [], (err, rows) => {
+		result["history"] = [];
+		if (err){
+			throw err;
+		}
+
+		rows.forEach((row) => {
+			console.log(row);
+			result["history"].push(row);
+		});
+		//console.log(result);
 		res.json(result);
 	});
 });

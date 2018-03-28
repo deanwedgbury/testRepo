@@ -2,16 +2,23 @@
 
 from subprocess import call
 
-
-
 import time
-
 import smbus
 
-bus = smbus.SMBus(1)
+import requests
+import json
+#import codecs
 
-# This is the address we setup in the Arduino Program
-address = 0x04
+
+bus = smbus.SMBus(1)
+address = 0x04 # address of the arduino pin 
+
+port = 10269  
+plantID = 1
+interval = 1
+
+#reader = codecs.getreader("utf-8")
+
 
 def writeNumber(value):
     bus.write_byte(address, value)
@@ -21,48 +28,80 @@ def readNumber():
     number = bus.read_byte(address)
     return number
 
-'''
-while True:
-    var = input("Enter 1 for temp(in celsius), 2 for humdity(0-100%), 3 for moisture(0-255) or 9 to toggle the motor: ")
-    if not var:
-        continue
-
-    writeNumber(var)
+# 1 is temp
+# 2 is humidity
+# 3 is moisture
+def readData(type):
+    writeNumber(type)
     # sleep one second
     time.sleep(1)
-
-    number = readNumber() # this is the value the arduino responds with
-    print "Arduino: ", number
-    print
-'''
-
-def readMoisture():
+    response = readNumber() # this is the value the arduino responds with
     
-    # Test Get only moisture
-    writeNumber(3)
-    # sleep one second
-    time.sleep(1)
-    number = readNumber() # this is the value the arduino responds with
-    
-    #number = 1
-    return number
+    return response
 
 if __name__ == '__main__':
-    interval = 1#10
-    i=0
+    #a = readData(9)
+    print("Welcome to PlantBuddy!")
     while True:
-        time.sleep(interval)
         
         # Get values from arduino
-        moisture=readMoisture()
+        try:
+       	    temp = readData(1)
+            humidity = readData(2)
+            moisture = readData(3)
+        except OSError:
+            print("OSError caught!")
+            continue
+        except IOError:
+            print("IOError caught!")
+            continue
+        except BaseException as error:
+            print("An exception occured: {}".format(error))
 
-        # Update the database
-        # Read from database and send 9 to arduino if water=True
+        
         #call(["ls", "-l"])
-        call(["java", "Update"])
+        #call(["java", "Update"])
+        
+        water = -1
+        try:
+	        # Update the database
+        	#link = "http://cslinux.utm.utoronto.ca:" + port + "/api/updateHistory?id=" + plantID +"&temp=" + temp + "&humidity=" + humidity + "&moisture=" + moisture
+        	#send_data = urllib2.urlopen(link).read()
+            link_for_push = "http://cslinux.utm.utoronto.ca:" + str(port) + "/api/updateHistory"
+            push = requests.put(url=link_for_push, data={"id":plantID, "temp":temp, "humidity":humidity, "moisture":moisture})
+            print("pushed " + str(temp) + " " + str(humidity) + " " + str(moisture) + " to plant " + str(plantID))
+        	# Read from database and turn on the pump if watering is on
+        	#json_water = urllib2.urlopen("http://cslinux.utm.utoronto.ca:10511/api/getState?id=1").read()
 
-        i=i+1
+            link_for_water = "http://cslinux.utm.utoronto.ca:" + str(port) + "/api/getState?id=" + str(plantID)
+            json_water = requests.get(link_for_water)
+            water = json_water.json()['state'][0]
+        
+        except BaseException as error:
+            print("An exception occured: {}".format(error))
+	
 
+	#water = json.load(json_water)['state'][0]
+        #water = json_water.json()['state'][0]
+        print(water)
+        waterCommand = 0
+        if (water):
+            waterCommand = 7
+        else:
+            waterCommand = 8
+
+        try:
+            writeNumber(waterCommand)
+        except OSError:
+            print("Caught OSError!")
+            continue
+        except IOError:
+            print("Caught IOError!")
+            continue
+        except BaseException as error:
+            print("An exception occured: {}".format(error))
+
+        time.sleep(interval)
 
     
 

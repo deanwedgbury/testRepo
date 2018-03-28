@@ -48,4 +48,5 @@ We broke the user stories into separate tasks and assigned them to each member:
 - Create an endpoint in node.js to retrieve the value of doWater (Roman/Dean)
 - In the pi's python script, continually make requests to node.js to read the value of doWater. If true, send a signal to Arduino to water the plant. (Andy)
 
-
+## Goals before Presentation:
+Complete the extra hardware features such as Tracking Nutrition, Animal Deterrent, Indoor Light. Additionally, add in water reservoir and sunlight sensors. 
