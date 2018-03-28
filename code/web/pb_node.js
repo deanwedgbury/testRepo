@@ -205,19 +205,23 @@ app.get('/api/getHistory', function (req, res){
 	});
 });
 
-app.put('/api/getOptMoisture/', function (req, res) {
+app.get('/api/getThreshold/', function (req, res) {
 
 	console.log("in getOpt in pb_node.js backend");
-	var pid=req.body.plantID;
+	//var pid=req.query.plantID;
 	var result = {};
+	result["optMoisture"]=[];
 
+	//let sql = 'SELECT optMoisture FROM optimal, plant WHERE plant.plantType=optimal.plantType AND plantplantID=$1;';
+	var sql = 'SELECT optimal.optMoisture FROM optimal JOIN plant ON plant.plantType = optimal.plantType WHERE plant.plantID=1;';
 
-	let sql = 'SELECT optMoisture FROM optimal, plant WHERE plant.plantType=optimal.plantType AND plantplantID=$1;';
-	db.run(sql, [pid], (err, rows) => {
+	db.run(sql, [], (err, rows) => {
 		if (err) {
 			console.log(err.message);
 			throw err;
 		} else {
+			console.log(rows);
+
 			rows.forEach((row) => {
 				result["optMoisture"].push(row);
 			});
