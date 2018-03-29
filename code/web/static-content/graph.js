@@ -6,24 +6,28 @@ function drawHistory(history, type){
     var dates = [];
     var labels = [];
     var colour;
+    var yaxis;
     for (var i = 0; i <= history.length; i++){
         if (history[i] != null){
             temps.push(history[i][type]);
-            time = Date(history[i]['recordDate'])
-            dates.push(time.substring(0,25));
+            d = new Date(history[i]['recordDate'])
+            dates.push((d.toString()).substring(0,25));
         } 
     }
     
     if (type == "moisture"){
         var ctx = document.getElementById("myChart").getContext('2d');
         colour = 'rgba(255, 99, 132, 0.5)';
+        yaxis = "Moisture (%) "
     } else if (type == "temp"){
         var ctx = document.getElementById("myChart1").getContext('2d');
         colour = 'rgba(75, 192, 192, 0.5)';
+        yaxis = "Celsius (°C)"
     }
     else if (type == "humidity"){
         var ctx = document.getElementById("myChart2").getContext('2d');
         colour = 'rgba(153, 102, 255, 0.5)';
+        yaxis = "Relative Humidity (%)"
     }
     
 	var myChart = new Chart(ctx, {
@@ -49,13 +53,22 @@ function drawHistory(history, type){
             },
 			scales: {
 			    yAxes: [{
-
+                    scaleLabel: {
+                        display: true,
+                        labelString: yaxis
+                      },
                     
 			        ticks: {
 			            beginAtZero:true
 			        },
 			    }],
 			    xAxes: [{
+                    
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Date and Time'
+                      },
+                      
 			        ticks: {
 			            autoskip: true
 			        },
