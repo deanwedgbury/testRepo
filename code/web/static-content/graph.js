@@ -35,22 +35,22 @@ function drawHistory(history, type){
 		data: {
 			labels: dates,
 			datasets: [{
-			    label: type,
 			    data: temps,
 			    backgroundColor: colour,
 			    borderWidth: 1
 			}]
 		},
 		options: {
+            legend: {
+                display: false,
+           
+            },
             
             title: {
                 display: true,
-                text: type
+                text: type[0].toUpperCase() + type.slice(1)
             },
-            
-            legend: {
-                display: false
-            },
+           
 			scales: {
 			    yAxes: [{
                     scaleLabel: {
