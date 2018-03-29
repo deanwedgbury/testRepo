@@ -47,7 +47,7 @@ if __name__ == '__main__':
         
         # Get values from arduino
         try:
-       	    temp = readData(1)
+            temp = readData(1)
             humidity = readData(2)
             moisture = readData(3)
         except OSError:
@@ -65,32 +65,34 @@ if __name__ == '__main__':
         
         water = 0
         try:
-	        # Update the database
-        	#link = "http://cslinux.utm.utoronto.ca:" + port + "/api/updateHistory?id=" + plantID +"&temp=" + temp + "&humidity=" + humidity + "&moisture=" + moisture
-        	#send_data = urllib2.urlopen(link).read()
+          # Update the database
+          #link = "http://cslinux.utm.utoronto.ca:" + port + "/api/updateHistory?id=" + plantID +"&temp=" + temp + "&humidity=" + humidity + "&moisture=" + moisture
+          #send_data = urllib2.urlopen(link).read()
             link_for_push = "http://cslinux.utm.utoronto.ca:" + str(port) + "/api/updateHistory"
             push = requests.put(url=link_for_push, data={"id":plantID, "temp":temp, "humidity":humidity, "moisture":moisture})
             print("pushed " + str(temp) + " " + str(humidity) + " " + str(moisture) + " to plant " + str(plantID))
 
 
-        	# Read from database and turn on the pump if watering is on
+          # Read from database and turn on the pump if watering is on
             link_for_water = "http://cslinux.utm.utoronto.ca:" + str(port) + "/api/getState?id=" + str(plantID)
             json_water = requests.get(link_for_water)
             water = json_water.json()['state'][0]
 
             link_for_threshold = "http://cslinux.utm.utoronto.ca:" + str(port) + "/api/getThreshold?id=" + str(plantID)
             json_threshold = requests.get(link_for_threshold)
-            threshold = json_threshold.json()['moisture'][0]
+            threshold = json_threshold.json()['moisture'][0]['optMoisture']
 
         
         except BaseException as error:
             print("An exception occured: {}".format(error))
-	
+  
 
-	#water = json.load(json_water)['state'][0]
+  #water = json.load(json_water)['state'][0]
         #water = json_water.json()['state'][0]
         
         waterCommand = 0
+        print(threshold)
+        print("mosture/threshold"+str(moisture)+"/"+str(threshold))
 
         if (moisture < threshold):
             print("Moisture too low!")
@@ -117,7 +119,6 @@ if __name__ == '__main__':
         time.sleep(interval)
 
     
-
 
 
 
