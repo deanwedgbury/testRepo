@@ -16,3 +16,6 @@ On top of this, the Plant Buddy system will also measure data such as temperatur
 * Dominik Loncar
 * Daniel Wang
 * Dean Wedgbury
+
+## Videos
+https://photos.app.goo.gl/MLQpw8o9zHVQdqGL9
